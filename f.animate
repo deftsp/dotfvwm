@@ -1,0 +1,9 @@
+
+*FvwmAnimate: Delay 20
+*FvwmAnimate: Width 2
+*FvwmAnimate: Color #48d1cc
+#  Lines, Flip, Turn, Zoom3D, Twist Random, and None.
+*FvwmAnimate: Effect Flip
+*FvwmAnimate: Iterations 20
+
+

@@ -1,0 +1,135 @@
+
+# http://fvwm.lair.be/viewtopic.php?f=38&t=1767
+DestroyFunc CurrentPageFocusFunc
+AddToFunc CurrentPageFocusFunc
++ "I" Next (CurrentPage, State 2) Focus
++ "I" None (CurrentPage, Focused) Prev (CurrentPage, !Iconified, !Sticky) Focus
+
+AddToFunc RaiseAndResize
++ I Raise
++ C Resize direction SE WarpToBorder
+
+AddToFunc MoveWindoz
++ I Raise
++ M Move
++ D Close
+
+AddToFunc PlaceIcon
++ C Iconify off
++ C All (CurrentPage, Iconic) PlaceAgain Icon
+
+AddToFunc Max
++ I Raise
++ M Maximize2
++ C Maximize 100 100
+
+AddToFunc Maximize2
++ I Raise
++ I Maximize 85 85
++ I CentreWindow 0 0
+
+AddToFunc CentreWindow
++ I PipeRead "echo $2Move $$(((($[vp.width]-$[w.width])/2)-$0))p $$(((($[vp.height]-$[w.height])/2)-$1))p"
+
+AddToFunc RaiseOrIconify
++ I Testrc (Match) ThisWindow (Iconic) Iconify off
++ I Raise
++ I WarpToWindow 50 50
+
+# http://forums.gentoo.org/viewtopic.php?p=1002353#1002353
+DestroyFunc WheelScroll
+AddToFunc WheelScroll I PipeRead 'case $0 in \
+      up) test $[page.ny] -eq $$(($[desk.pagesy]-1)) -a $[page.nx] -lt $$(($[desk.pagesx]-1)) \
+         && echo GotoPage +1p 0 \
+         || echo GotoPage 0p +1p;; \
+      down) test $[page.ny] -eq 0 -a $[page.nx] -gt 0 \
+         && echo GotoPage -1p $$(($[desk.pagesy]-1)) \
+         || echo GotoPage 0p -1p;; \
+   esac'
+
+
+DestroyFunc ShowDesktop
+AddToFunc ShowDesktop
++  I All (AcceptsFocus CurrentPage !Iconic !Shaded !ButtonDocks) Iconify
+# +  I all iconify on
+
+DestroyFunc MaximizeGrow
+AddToFunc MaximizeGrow
+# +  I Maximize growonlayers $[w.layer] -1 grow grow
++  I Maximize grow grow
+
+# FVWM must be restarted after xcompmgr, otherwise edges don't work
+# DestroyFunc RestartXCompMgr
+# AddToFunc RestartXCompMgr
+# + I PipeRead 'killall xcompmgr && exec xcompmgr -n & echo Restart'
+
+DestroyFunc StardictToggleScan
+AddToFunc  StardictToggleScan
++  I       All (Stardict) FakeKeypress modifiers 1 press s modifiers -1
+
+
+# http://www.internettablettalk.com/forums/showthread.php?t=22594
+# DestroyFunc sendfakekey
+# AddToFunc sendfakekey
+# #+ I Test (EnvIsSet fakectrl) FakeKeypress modifiers 8 press $0 modifiers -8
+# + I Test (EnvMatch fakecaps 1) FakeKeypress modifiers 7 press $0 modifiers -7
+# + I Test (EnvMatch fakecaps 0) FakeKeypress press $0
+
+# DestroyFunc setfakecaps
+# AddToFunc setfakecaps
+# + I Test (EnvMatch fakecaps 1) SetEnv fakecaps 0
+# + I TestRc (NoMatch) SetEnv fakecaps 1
+# + I Test (EnvMatch fakecaps 1) SendToModule vk ChangeButton caps Title C
+# + I TestRc (NoMatch) SendToModule vk ChangeButton caps Title c
+
+# AddToFunc setfakectrl
+# + I Test (EnvMatch fakectrl 1) SetEnv fakectrl 0
+# + I TestRc (NoMatch) SetEnv fakectrl 1
+# + I Test (EnvMatch fakectrl 1) SendToModule vk ChangeButton ctrl Title C
+# + I TestRc (NoMatch) SendToModule vk ChangeButton ctrl Title c
+
+# DestroyFunc RaiseFocus
+# AddToFunc RaiseFocus
+# + I Raise
+# + I FlipFocus
+
+
+
+# DestroyFunc LastWindow
+# AddToFunc LastWindow
+# + I       Next (CurrentPage, State 2) SelectWindow
+# + I       None (CurrentPage) Break
+
+# DestroyFunc MarkWindowAsLastWindow
+# AddToFunc   MarkWindowAsLastWindow
+# + I         Current State 2 True
+
+# DestroyFunc UnMarkWindowAsLastWindow
+# AddToFunc   UnMarkWindowAsLastWindow
+# + I         All State 2 False
+# + I         Current State 2 True
+
+# DestroyModuleConfig FvwmEvent: *
+# *FvwmEvent: Cmd Function
+# *FvwmEvent: raise_window MarkWindowAsLastWindow
+# *FvwmEvent: enter_window MarkWindowAsLastWindow
+# *FvwmEvent: focus_change UnMarkWindowAsLastWindow
+# *FvwmEvent: leave_window MarkWindowAsLastWindow
+
+# *FvwmEvent: Cmd Echo
+# *FvwmEvent: focus_change "focus change:)"
+# *FvwmEvent: raise_window "raise window:)"
+
+############################################################################################
+# FvwmEvent: conditional window checking by example http://linuxgazette.net/127/adam1.html
+############################################################################################
+# DestroyModuleConfig FE-StartMaximised: *
+# *FE-StartMaximised: Cmd Function
+# *FE-StartMaximised: add_window StartAppMaximised
+
+# Module FvwmEvent FE-StartMaximised
+
+# DestroyFunc StartAppMaximised
+# AddToFunc   StartAppMaximised
+# + I ThisWindow ("name of window|another window", \
+# !Maximized, !Transient) Maximize

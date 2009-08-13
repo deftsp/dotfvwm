@@ -1,0 +1,13 @@
+
+Style ConkyInfo	Sticky ,NoTitle ,WindowListSkip, CirculateSkipIcon, \
+		CirculateSkip, StaysOnBottom, NoHandles, BorderWidth 0  \
+		FixedPosition, FixedSize, !Iconifiable, !Borders
+
+DestroyModuleConfig ConkyInfo: *
+*ConkyInfo: Rows 1
+*ConkyInfo: Columns 1
+*ConkyInfo: Geometry 50x200+0+0
+*ConkyInfo: Colorset 2
+*ConkyInfo: Frame 0
+# *ConkyInfo: (1x1, Swallow "conky" 'Exec conky')
+

@@ -1,0 +1,91 @@
+###########
+#  ____________________________
+# (   _________________________)
+#  ) (__  _  _  _    _
+# (   __)( \/ )( \/\/ )/\/\
+#  ) (    \  /  \    //    \
+# (___)    \/    \/\/(_/\/\_) 2.5.26
+# S.P.Tseng's fvwm2rc file
+#
+#######################
+
+# have a look at : man fvwm and search for things with /word  or /^word  n n or N N u Space
+
+#####
+# Set Environment variables
+###########
+SetEnv fvwm_img        $[FVWM_USERDIR]/images
+SetEnv fvwm_decor      $[fvwm_img]/decor
+SetEnv fvwm_gant       $[fvwm_img]/icons/gnant
+SetEnv fvwm_ryo        $[fvwm_img]/icons/ryo
+SetEnv fvwm_fav        $[fvwm_img]/icons/fav
+SetEnv fvwm_scripts    $[FVWM_USERDIR]/scripts
+SetEnv fvwm_wallpapers $[FVWM_USERDIR]/wallpaper
+
+ModulePath $[HOME]/.fvwm/modules:+
+
+#####
+# Set the image path
+###########
+ImagePath $[fvwm_img]:$[fvwm_img];.png:$[fvwm_decor]:$[fvwm_fav]:$[fvwm_gant]:$[fvwm_ryo]:$[fvwm_wallpapers]:+
+
+#####
+# set preference application
+###########
+SetEnv fvwm_webbrowser /usr/bin/firefox
+SetEnv fvwm_term /usr/bin/urxvt
+SetEnv fvwm_mail /usr/bin/mutt
+SetEnv fvwm_video_player /usr/bin/mplayer
+
+#####
+# Virtual Desktops
+###########
+DesktopSize 2x2
+
+
+DesktopName 0 Main
+DesktopName 1 Web & Mail
+DesktopName 2 Devel
+DesktopName 3 Games
+
+# wait before to change the page: wait 400 milliseconds.
+# EdgeResistance 400
+EdgeResistance -1
+#x 100000 --> swap (so 100% and swap (x100))
+# EdgeScroll 100000 100000
+EdgeThickness 0
+OpaqueMoveSize unlimited
+# EwmhBaseStruts 110 110 25 30
+EwmhBaseStruts 0  0 19 0
+#####
+# Mouse and Focus Behavior
+###########
+ClickTime 750
+# MoveThreshold 3
+Style *          ClickToFocus
+
+# ignores the 'Num Lock' modifier
+IgnoreModifiers L25
+# Fvwm | Mwm | Win
+Emulate Fvwm
+Read f.rc
+Read f.style
+Read f.decor
+Read f.animate
+Read f.pager
+Read f.colors
+Read f.keys
+Read f.iconman
+Read f.func
+Read f.mouse
+Read f.iconbox
+Read f.stroke
+Read f.menu
+
+
+# Read f.dock
+# Read f.buttons
+# Read f.conky
+# Read f.taskbar
+# Read f.buttonstyle
+

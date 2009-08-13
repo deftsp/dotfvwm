@@ -1,0 +1,34 @@
+#Drag mouse on the root window
+Mouse 3 R N StrokeFunc DrawMotion
+
+#Drag mouse with Ctrl key
+Mouse 3 A C StrokeFunc DrawMotion
+
+#Drag mouse on the border
+Mouse 3 TSF N StrokeFunc DrawMotion
+
+
+
+Stroke N7414789  0 A C Exec exec  xterm
+Stroke N7414759  0 A C Exec exec  xterm
+Stroke N74147589 0 A C Exec exec  xterm
+Stroke N7414756  0 A C Exec exec  xterm
+Stroke N74156    0 A C Exec exec  xterm
+Stroke N74159    0 A C Exec exec  xterm
+
+
+#grow diagonally
+Stroke N159 	0 TSF N Maximize True growright growup
+Stroke N951 	0 TSF N Maximize True growleft growdown
+Stroke N753 	0 TSF N Maximize True growright growdown
+Stroke N357 	0 TSF N Maximize True growleft growup
+Stroke N5159 	0 TSF N Maximize True grow grow
+Stroke N5951 	0 TSF N Maximize True grow grow
+Stroke N5753 	0 TSF N Maximize True grow grow
+Stroke N5357 	0 TSF N Maximize True grow grow
+
+Stroke N5852 	0 TSF N Maximize True growleft grow
+
+
+Stroke N5456 0 A C Exec exec xkill
+Stroke N65456 0 A C Exec exec xkill

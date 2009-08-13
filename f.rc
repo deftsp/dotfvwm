@@ -1,0 +1,60 @@
+######################## Initialization Functions ############################
+# StartFunction will be executed at FVWM start or restart
+# InitFunction will be executed only at FVWM first start
+# RestartFunction will be executed at FVWM restart
+# InitFunction and RestartFunction will be called after StartFunction
+# ExitFunction will be calld when restart or really exit
+
+DestroyFunc InitFunction
+AddToFunc InitFunction
+# + I Module FvwmBanner
+# + I Exec exec xscreensaver -no-splash
++ I Exec exec fcitx
+# + I Exec exec ivman-launch --exit-with-session xinit &
+# + I Exec exec wicd-client
+
+# "I" is short for Imediately
+DestroyFunc StartFunction
+AddToFunc StartFunction
+# + I Test (Restart) UnsetEnv *
++ I Module FvwmAnimate
++ I Module FvwmAuto FvwmAutohide -menter FuncAutoEnter
++ I Module FvwmPager 0 3
++ I Module FvwmEvent
++ I Module FvwmProxy
+# + I Module FvwmIconMan
+# + I Module FvwmIconBox
++ I Module FvwmPerl
++ I Module FvwmCommandS
++ I Module FvwmButtons MyBarre
+# + I Module FvwmButtons MyDock
+# + I Module FvwmButtons ConkyInfo
+# + I Module FvwmButtons FvwmStalonePanel
+# + I Exec exec killall stalonetray
+# + I Exec exec Esetroot -s $[Backgrounds]/.current
+# + I Module FvwmButtons MainPanel
+# + I Module FvwmButtons MyButtons
+# + I Module FvwmButtons DeskLabel
+# + I Module FvwmAuto 500 Raise Nop
+# + I Module FvwmTaskBar
+# + I Exec exec conky
+# + I Exec exec xcompmgr -cCfF -r7 -o.65 -l-10 -t-8 -D7 -O 0.05
+# + I Exec exec xcompmgr -cCfF -r7 -o.65 -l-10 -t-8 -D7 &
+# + I KillModule FvwmTransFocus
+# `opacity of active windows' `opacity of inactive windows' and opacity of newly created windows
+# + I Module FvwmTransFocus 1.0 0.6 0.6
+# + I Exec exec xdaliclock
+# + I Exec exec xloadimage -onroot -fullscreen ~/pic/cat_20.jpg
+# + I Exec exec xsim
+# + I test (!Restart) exec exec 3ddeskd
+
+
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I Piperead 'killall conky'
+# + I All (xdaliclock) Close
+# + I All (xscreensaver) Close
+# + I All (xsim) Close
++ I Exec exec sync
+# + I test (!torestart) exec exec killall -9 xcompmgr
+# + I test (!torestart) exec exec 3ddesk --stop

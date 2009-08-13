@@ -1,0 +1,125 @@
+style Gimp StartsOnDesk 2
+# Style  *thunar           geometry 100x60+240+240
+
+style * TitleAtLeft
+# Handles, the width from the BorderWidth style is used.
+Style * Handles, HandleWidth 1, NoIcon
+# Style * SloppyFocus, ResizeOpaque, MouseFocusClickRaises
+Style MyDock Sticky, NoTitle, HandleWidth 0, WindowListSkip
+
+DefaultFont "Shadow=0 1 SE:xft:华文黑体:bold:pixelsize=10"
+Style * Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso8859-1"
+
+
+# Style * ResizeHintOverride
+# Style * Colorset 4
+# Style * HilightColorset 7
+
+#	#######################################
+# Style gkrellm2 DecorateTransient, WindowListSkip, NoTitle
+# Style mrxvt 	EWMHMiniIconOverride,MiniIcon 24x24/apps/gnome-terminal.png
+# Style ROX-Filer	EWMHMiniIconOverride,MiniIcon 24x24/apps/file-manager.png
+# Style firefox-bin EWMHMiniIconOverride,MiniIcon 24x24/apps/firefox-icon.png
+# Style gvim	EWMHMiniIconOverride,MiniIcon 	24x24/apps/gedit-icon.png
+# Style gaim	EWMHMiniIconOverride,MiniIcon 24x24/apps/gaim.png
+# Style Beep-media-player EWMHMiniIconOverride,NoHandles, NoTitle, MiniIcon \
+#  24x24/apps/rythmbox.png,WindowListSkip
+# Style prokyon3 EWMHMiniIconOverride,MiniIcon 24x24/apps/gnome-grecord.png
+# Style k3b	EWMHMiniIconOverride,MiniIcon 24x24/apps/disks.png
+# Style opera	EWMHMiniIconOverride,MiniIcon 24x24/opera.png
+# Style conky	WindowListSkip, NoTitle
+# Style HiddenConsole Sticky, WindowListSkip, Notitle, StaysOnTop, NoHandles, CirculateSkip
+# Style "XMMS_Player" NoTitle
+# Style "XMMS_Playlist" NoTitle
+# Style "XMMS_Equalizer" NoTitle
+
+
+
+
+#### decoration
+# Style * Colorset 10, HilightColorset 11
+# Style * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+# Style * InactiveFont "Shadow=0 1 SE:xft:Swis721 Cn BT:pixelsize=12"
+# Style * DecorateTransient
+# Style * SmartPlacement, WindowShadeSteps 20, ResizeOpaque
+# Style * BorderWidth 0, HandleWidth 1
+# Style * NoIconTitle
+# Style * SloppyFocus, MouseFocusClickRaises
+# Style * GrabFocusOff, NoIconTitle
+# Style * RoundedCorners, SlightlyRoundedCorners
+# Style * ResizeOutline , ResizeOutlineThin
+# Style "*" MWMFunctions
+# Style "*" HintOverride
+# Style "*" MWMDecor
+# Style "*" MWMButtons
+# Style "*" MWMBorder
+# Style "*" NoIcon
+#### menu
+MenuStyle * Hilight3DThin, PopupOffset +0 100, PopupDelay 1400
+# MenuStyle * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+MenuStyle * Font "Shadow=0 1 SE:xft:华文黑体:bold:pixelsize=10"
+MenuStyle * MenuColorset 0, HilightBack, ActiveColorset 1
+MenuStyle * BorderWidth 0, TitleUnderlines0, SeparatorsLong, Animation
+MenuStyle * TrianglesSolid
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%10.3>%2|"
+MenuStyle * AutomaticHotKeys
+MenuStyle * TitleColorset 2
+MenuStyle * TitleFont "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=14"
+# MenuStyle * FlatSeparators
+
+# MenuStyle * PopupOffset 0 100
+# MenuStyle * MenuFace DGradient 1000 2 white 600 grey 300 darkgrey
+# MenuStyle * Foreground black, Background steelblue
+# MenuStyle * Font -*-kates-*-*-*-*-14-*-*-*-*-*-*-*
+#MenuStyle * HilightBackOff, Hilight3DOff
+
+#### fvwm
+# Style FvwmPager    !Title,  Sticky, WindowListSkip, CirculateSkipIcon, CirculateSkip   , RoundedCorners
+# Style FvwmPager    StaysOnBottom, !Handles, Borderwidth 1, NeverFocus
+# Style FvwmIconMan  !Title, !Handles, WindowListSkip, Sticky, !Borders
+# Style PanelButtons  !Title, !Handles, WindowListSkip, Sticky, StaysOnBottom, BorderWidth 1  #, !RoundedCorners
+# Style PagerButtons  !Title, !Handles, WindowListSkip, Sticky, StaysOnBottom, !Borders
+# Style MenuButtons !Title, !Handles, WindowListSkip, Sticky, BorderWidth 1
+# Style TimeScript !Title, !Handles, !Borders, !RoundedCorners
+#### scripts
+# Style Calendar !Title, RoundedCorners, WindowListSkip
+# Style Weather5day !Title, RoundedCorners, StaysOnBottom, Sticky, WindowListSkip
+#### apps
+Style *              Icon 48x48/x.png, MiniIcon 22x22/x.png
+# Style ** EWMHMiniIconOverride, IconOverride, MiniIcon none.png
+# Style *term* MiniIcon icons/terminal.png
+# Style FvwmIdent MiniIcon icons/id.png
+Style *rxvt*         Icon 48x48/terminal.png, MiniIcon 22x22/terminal.png
+# Style *rxvt*         Icon 48x48/terminal.png, IconOverride, MiniIcon 22x22/terminal.png
+Style "gvim"         Icon 48x48/gvim.png, IconOverride, MiniIcon mini/gvim.png, EWMHMiniIconOverride
+Style *irefox        Icon 48x48/firefox.png, IconOverride, MiniIcon 22x22/firefox.png, EWMHMiniIconOverride
+Style Emacs          Icon 48x48/emacs.png, IconOverride, MiniIcon 22x22/emacs.png, TitleAtTop
+# use T to set/unset mplayer stay on top and not set StaysOnTop style
+Style MPlayer        Icon 48x48/mplayer.png, IconOverride, MiniIcon 22x22/mplayer.png
+Style fcitx          Layer 7, NoTitle, HandleWidth 1, Sticky, WindowListSkip
+style Gimp           TitleAtTop
+Style qq             !Title
+Style Opera          MiniIcon 22x22/opera.png
+Style Xpdf           MiniIcon 22x22/xpdf.png
+
+# Style *hunderbird* MiniIcon icons/mail.png
+# Style *chat* MiniIcon icons/xchat.png
+# Style Gimp MiniIcon icons/gimp.png
+# Style gaim MiniIcon icons/gaim.png
+# Style *FTP MiniIcon icons/ftp.png
+# Style Bluefish MiniIcon icons/bluefish.png
+# Style vim MiniIcon icons/gvim.png
+# Style Bittorrent MiniIcon icons/torrent.png
+# Style easytag MiniIcon icons/grip.png
+# Style acroread MiniIcon icons/acroread.png
+# Style rox MiniIcon icons/folder.png
+# Style Grip MiniIcon icons/grip.png
+# Style gcalctool MiniIcon icons/calc.png
+# Style xcalc MiniIcon icons/calc.png
+# Style FvwmConsole MiniIcon icons/terminal.png
+# Style MPlayer MiniIcon icons/mplayer.png, !Title, !Borders
+# Style Inkscape MiniIcon icons/inkscape.png
+# Style "OpenOffice.org 2.0" MiniIcon icons/office.png
+# Style GImageView MiniIcon icons/gimv.png
+# Style xmms MiniIcon icons/music.png, !Title, !Borders , !RoundedCorners
+# Style "MPlayer - Video"	MiniIcon icons/mplayer.png, Title, Borderwidth 0, WindowListSkip

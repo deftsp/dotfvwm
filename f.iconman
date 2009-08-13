@@ -1,0 +1,158 @@
+Style FvwmIconMan  NoTitle, HandleWidth 0, Sticky, WindowLIstSkip, StaysOnBottom, CirculateSkipIcon, CirculateSkip,
+
+piperead "echo SetEnv posbarre $$(( ($[vp.width]-600) / 2))"
+
+DestroyModuleConfig FvwmIconMan : *
+
+*FvwmIconMan  Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso10646-1"
+
+*FvwmIconMan: Colorset 3
+*FvwmIconMan: Action Mouse 1 A SendCommand  RaiseOrIconify
+*FvwmIconMan: NoIconAction "SendToModule FvwmAnimate animate"
+*FvwmIconMan: background white grey
+*FvwmIconMan: ShowOnlyIcons false
+*FvwmIconMan: ManagerGeometry 3x1+$[posbarre]+0
+*FvwmIconMan: ReliefThickness 0
+*FvmwIconMan: PlainButton flat black white
+*FvwmIconMan: IconButton flat black grey
+*FvwmIconMan: SelectButton flat blue white
+*FvwmIconMan: FocusButton flat blue white
+*FvwmIconMan: FocusAndSelectButton flat blue white
+*FvwmIconMan: ButtonGeometry  100x23
+*FvwmIconMan: 1 Title		""
+*FvwmIconMan: Resolution global
+*FvwmIconMan: Format "%c: %i"
+###############################
+DestroyModuleConfig heure:*
+*heure: Frame 0
+*heure: Colorset 3
+*heure: Columns 1
+*heure: Rows 5
+*heure: Frame 0
+*heure: (1x1, Action (Mouse 1) nop)
+*heure: (1x3,Swallow "xclock" 'Exec xclock -d -padding 1 -fg cyan -bg black\
+ -update 1 -strftime "%T %a %d %b" -face "snap-8:bold"')
+# *heure: (1x3,Swallow "xclock" 'Exec xclock -d -padding -10 -bg blue -geometry 100x20 -update 1 -strftime "%T %a %d %b"')
+
+*heure: (1x1, Action (Mouse 1) nop)
+
+DestroyModuleConfig CpuLoad:*
+*CpuLoad: Frame 0
+*CpuLoad: Colorset 3
+*CpuLoad: Columns 1
+*CpuLoad: Rows 5
+*CpuLoad: Frame 0
+*CpuLoad: (1x1, Action (Mouse 1) nop)
+*CpuLoad: (1x3, Swallow "xload" 'Exec xload -g 20x10 -bg black -fg cyan -update 1 -nolabel')
+*CpuLoad: (1x1, Action (Mouse 1) nop)
+
+
+
+###########################################################################
+
+Style MyBarre  NoTitle, HandleWidth 0, Sticky, WindowLIstSkip, StaysOnBottom, CirculateSkipIcon, CirculateSkip, !Iconifiable
+
+DestroyModuleConfig MyBarre :*
+*MyBarre: Geometry 1280x17+0+2
+*MyBarre: Columns 200
+*MyBarre: Rows 1
+*MyBarre: Colorset 3
+*MyBarre: Frame 0
+# *MyBarre: (6x1,Frame 0,Icon fvwm.png, Action (Mouse 1) Menu MenuFvwmRoot window c+0 -105m)
+*MyBarre: (6x1,Frame 0,Icon fvwm.png, Action (Mouse 1) Menu MenuFvwmRoot Root +0 +20p)
+*MyBarre: (137x1, Swallow "FvwmIconMan", "Module FvwmIconMan")
+*MyBarre: (1x1,Action (Mouse 1) nop )
+*MyBarre: (20x1, Swallow (Kill, UseOld) "stalonetray" 'Exec exec stalonetray')
+# *MyBarre: (20x1, Swallow (Kill, UseOld) "trayer" 'Exec exec trayer --transparent true --alpha 0 --widthtype pixel --width 120 --heighttype pixel --height 8')
+*MyBarre: (1x1,Action (Mouse 1) nop )
+*MyBarre: (14x1, Swallow "CpuLoad" "Module FvwmButtons CpuLoad")
+*MyBarre: (1x1,Action (Mouse 1) nop )
+*MyBarre: (22x1, Swallow "heure" "Module FvwmButtons heure")
+*MyBarre: (1x1,Action (Mouse 1) nop )
+
+##################################################################
+# http://fvwm.lair.be/viewtopic.php?f=43&t=934
+# Trayer width, the first number is the icons number, adjust it to fit yours needs
+# PipeRead 'echo SetEnv trayer_width $((8*24))'
+# Style FvwmStalonePanel  NoTitle, HandleWidth 0, Sticky, WindowLIstSkip, StaysOnBottom, CirculateSkipIcon, CirculateSkip, \
+# BorderWidth 0
+# DestroyModuleConfig FvwmStalonePanel: *
+# *FvwmStalonePanel: Frame 0
+# *FvwmStalonePanel: Geometry 200x24-0-2
+# *FvwmStalonePanel: Colorset 30
+# *FvwmStalonePanel: ActiveColorset $[cs-panel-active]
+# *FvwmStalonePanel: Colorset $[cs-panel-inactive]
+# *FvwmStalonePanel: Columns 30
+# *FvwmStalonePanel: Rows 1
+# *FvwmStalonePanel: (1x1, Padding 0 0, Swallow (NoClose) "stalonetray" 'Exec stalonetray \
+# -geometry 24x$[trayer_width]-1+100')
+# *FvwmStalonePanel: (20x1, Swallow (Kill, UseOld) "stalonetray" 'Exec exec stalonetray')
+
+# *FvwmButtons: (16x32, Frame 0, Swallow (NoClose,UseOld) "stalonetray" Exec exec stalonetray)
+
+
+
+# DestroyModuleConfig FvwmIconMan
+# if open different program under different Pager or Desk, FvwmIconMan need to config Resolution property
+# to collect all the programs of the desktop, like Pager and Global
+# *FvwmIconMan: Resolution desk
+# *FvwmIconMan: Resolution global
+# *FvwmIconMan: Nummanagers 1
+# *FvwmIconMan: Background steelblue4
+# *FvwmIconMan: Foreground white
+# *FvwmIconMan: Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=14"
+# *FvwmIconMan: ButtonGeometry 100x0
+# *FvwmIconMan: ManagerGeometry 1x0+0-10
+# # do not collect program that own WindowListSkip
+# *FvwmIconMan: UseWinList true
+# *FvwmIconMan: DrawIcons true
+# *FvwmIconMan: Shape true
+# *FvwmIconMan: FollowFocus true
+# *FvwmIconMan: Sort name
+# *FvwmIconMan: PlainButton flat white black
+# *FvwmIconMan: SelectButton up white dodgerblue
+# *FvwmIconMan: FocusButton up black skyblue
+# *FvwmIconMan: FocusAndSelectButton down white blue
+# *FvwmIconMan: TitleButton raisededge white yellow
+# *FvwmIconMan: Tips always
+# *FvwmIconMan: TipsFont "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=14"
+# *FvwmIconMan: NoIconAction "SendToModule FvwmAnimate animate"
+# *FvwmIconMan: ReliefThickness 1
+# # click some program and jump to it
+# *FvwmIconMan: Action Mouse 1 N sendcommand "Iconify off", sendcommand RaiseLower, sendcommand FlipFocus
+# *FvwmIconMan: Action Mouse 2 N sendcommand "WarpToWindow 50 50"
+# *FvwmIconMan: Action Mouse 3 N sendcommand "Popup MenuFvwmWindowOps rectangle $widthx$height+$left+$top 0 -100m"
+# *FvwmIconMan: Action Mouse 4 N bif Prev 3, gotobutton -1, warp, ret, gotobutton Prev, warp
+# *FvwmIconMan: Action Mouse 5 N bif Next 3, gotobutton 0, warp, ret, gotobutton Next, warp
+# *FvwmIconMan: Action Key Up N bif Prev 3, gotobutton -1, warp, ret, gotobutton Prev, warp
+# *FvwmIconMan: Action Key Down N bif Next 3, gotobutton 0, warp, ret, gotobutton Next, warp
+# *FvwmIconMan: Action Key Return N sendcommand "Iconify off, Raise, WarpToWindow 50 50"
+
+
+# *FvwmIconMan: NumManagers 1
+# *FvwmIconMan: Colorset 40
+# *FvwmIconMan: DrawIcons false
+# *FvwmIconMan: FocusAndSelectButton flat
+# *FvwmIconMan: FocusAndSelectColorset 40
+# *FvwmIconMan: FocusButton flat
+# *FvwmIconMan: FocusColorset 40
+# *FvwmIconMan: Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+# *FvwmIconMan: Format %t
+# *FvwmIconMan: IconButton flat
+# *FvwmIconMan: IconColorset 40
+# *FvwmIconMan: PlainButton flat
+# *FvwmIconMan: PlainColorset 40
+# *FvwmIconMan: Resolution page
+# *FvwmIconMan: SelectButton flat
+# *FvwmIconMan: SelectColorset 40
+# *FvwmIconMan: Sort id
+# *FvwmIconMan: UseWinList true
+# *FvwmIconMan: Tips false
+# *FvwmIconMan: ReliefThickness 0
+# *FvwmIconMan: Title ""
+# *FvwmIconMan: Action    Mouse   1  N sendcommand Raise
+# *FvwmIconMan: Action    Mouse   2  N sendcommand 'WindowShade toggle'
+# *FvwmIconMan: Action    Mouse   3  N sendcommand Thumbnail
+# *FvwmIconMan: ManagerGeometry 1x20+0+0
+# *FvwmIconMan: ButtonGeometry 150x20
+# *FvwmIconMan: MaxButtonWidth 300

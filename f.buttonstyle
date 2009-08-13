@@ -1,0 +1,45 @@
+############buttonstyle#################
+# 接下来的部分是设置标题栏的。FVWM预设了10个按钮的位置，一般都用不完。我只使用了1,8,6,4,2这五个位置。其中的8号位置还没完成。
+# 只是说明一下,FVWM上面标题栏按扭的排列是
+# 1 3 5 7 9 0 8 6 4 2
+# TitleStyle AllActive TiledPixmap bc.xpm ( ColorSet 8 -- Flat )
+# TitleStyle AllInactive TiledPixmap bc.xpm ( ColorSet 8 -- Flat )
+# TitleStyle Height 22 -- Flat
+
+# ButtonStyle All Simple -- UseTitleStyle
+# ButtonStyle All -- Flat
+
+# AddButtonStyle 1 \
+# ActiveUp (Pixmap menu.png -- flat) \
+# ActiveDown (Pixmap menu.png -- flat) \
+# Inactive (Pixmap menu.png -- flat)
+
+# AddButtonStyle 2 \
+# ActiveUp (Pixmap close.png -- flat) \
+# ActiveDown (Pixmap close.png -- flat) \
+# Inactive (Pixmap close.png -- flat)
+# AddButtonStyle 4 \
+# ActiveUp (Pixmap max.png -- flat) \
+# ActiveDown (Pixmap max.png -- flat) \
+# Inactive (Pixmap max.png -- flat)
+# AddButtonStyle 6 \
+# ActiveUp (Pixmap min.png -- flat) \
+# ActiveDown (Pixmap min.png -- flat) \
+# Inactive (Pixmap min.png -- flat)
+# AddButtonStyle 8 \
+# ActiveUp (Pixmap min.png -- flat) \
+# ActiveDown (Pixmap min.png -- flat) \
+# Inactive (Pixmap min.png -- flat)
+
+#按钮的样式
+# ButtonStyle 2 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# ButtonStyle 6 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# ButtonStyle 4 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# ButtonStyle 8 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+# ButtonStyle 1 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+
+# ButtonStyle 2 active Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# ButtonStyle 4 active Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# ButtonStyle 6 active Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# ButtonStyle 8 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+# ButtonStyle 1 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat

@@ -1,0 +1,346 @@
+DestroyModuleConfig FvwmBanner: *
+*FvwmBanner: NoDecor
+
+DestroyModuleConfig FvwmIdent: *
+*FvwmIdent: Colorset 52
+*FvwmIdent: Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso8859-1"
+
+# winter decor
+DestroyDecor DefaultDecor
+AddToDecor DefaultDecor
++ TitleStyle LeftJustified Height 15
++ TitleStyle InActive ( VGradient 40 white grey -- Flat ) Active ( VGradient 40 white grey -- Flat )
++ ButtonStyle All InActive ( VGradient 40 white grey -- Flat )
++ ButtonStyle All Active ( VGradient 40 white grey -- Flat )
++ AddButtonStyle  4 ActiveUp 7 30x30@3 30x60@3 60x60@3 60x30@3 \
+        30x30@3 30x35@3 60x35@3 -- Flat
++ AddButtonStyle  4 ActiveDown Vector 10 35x35@2 35x65@2 65x65@2 65x35@2 \
+        35x35@2 35x40@2 65x40@2 0x99@4 0x0@2 99x0@2 -- Flat
++ AddButtonStyle  4 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 \
+	30x30@3 30x35@3 60x35@3 -- Flat
++ AddButtonStyle  4 ActiveDown Vector 10 35x35@2 35x65@2 65x65@2 65x35@2 \
+        35x35@2 35x40@2 65x40@2 0x99@4 0x0@2 99x0@2 -- Flat
++ AddButtonStyle  1 ActiveUp Vector 5 44x30@3 74x30@3 74x60@3 44x60@3 44x30@3 -- Flat
++ AddButtonStyle  1 InActive Vector 5 44x30@2 74x30@2 74x60@2 44x60@2 44x30@2 -- Flat
++ AddButtonStyle  1 ActiveDown Vector 5 44x30@2 74x30@2 74x60@2 44x60@2 44x30@2 -- Flat
++ AddButtonStyle  6 ActiveUp Vector 5 30x60@2 60x60@2 60x50@2 30x50@2 30x60@2 -- Flat
++ AddButtonStyle  6 ActiveDown Vector 8 35x65@2 65x65@2 65x60@2 35x60@2 35x65@2 0x99@4 \
+        0x0@2 99x0@2 -- Flat
++ AddButtonStyle  6 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ AddButtonStyle  2 ActiveUp Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ AddButtonStyle  2 ActiveDown Vector 7 35x35@2 65x65@2 65x35@4 35x65@2 0x99@4 \
+        0x0@2 99x0@2 -- Flat
++ AddButtonStyle  2 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ ButtonStyle 2 - MwmDecorMenu
++ ButtonStyle 6 - MwmDecorMin
++ ButtonStyle 4 - MwmDecorMax
+###### DefDecor ######
+
+DestroyDecor DefDecor
+AddToDecor DefDecor
++ TitleStyle RightJustified Height 16
++ TitleStyle InActive ( VGradient 40 #afafaf #afafaf -- Flat ) Active ( VGradient 40 #696969 #696969 -- Flat )
+# ActiveHover ( Colorset 11 -- Flat )
++ ButtonStyle All Active ( VGradient 40 #696969 #696969 -- Flat )
++ ButtonStyle All INActive ( VGradient 90 #afafaf #afafaf -- Flat )
+# + ButtonStyle All Active ( Colorset 11 -- Flat )
+
++ AddButtonStyle  3 \
+     ActiveUp   (Pixmap maximize.png   -- flat) \
+     ActiveDown (Pixmap maximize.png   -- flat) \
+     Inactive   (Pixmap maximize.png   -- flat)
+# + AddButtonStyle  1 ActiveUp Vector 5 15x30@3 15x90@3 75x90@3 75x30@3 15x30@3 -- Flat
+# + AddButtonStyle  1 InActive Vector 5 44x30@2 74x30@2 74x60@2 44x60@2 44x30@2 -- Flat
+# + AddButtonStyle  1 ActiveDown Vector 5 44x30@2 74x30@2 74x60@2 44x60@2 44x30@2 -- Flat
++ AddButtonStyle  5 \
+     ActiveUp   (Pixmap iconify.png   -- flat) \
+     ActiveDown (Pixmap iconify.png   -- flat) \
+     Inactive   (Pixmap iconify.png   -- flat)
++ AddButtonStyle  1 \
+     ActiveUp   (Pixmap close.png   -- flat) \
+     ActiveDown (Pixmap close.png   -- flat) \
+     Inactive   (Pixmap close.png   -- flat)
+# + ButtonStyle 2 - MwmDecorMenu
+# + ButtonStyle 6 - MwmDecorMin
+# + ButtonStyle 4 - MwmDecorMax
++ BorderStyle Simple -- NoInset Flat
++ BorderStyle  Active ( Colorset 11 -- Flat ) inActive ( Colorset 10 -- Flat )
+
+Style * UseDecor DefDecor
+
+Style "*"	BorderWidth 2
+
+# ButtonStyle	All -- Flat
+# Style "*" Button 1, Button 2, Button 4, Button 6
+
+# AddButtonStyle 1 \
+# 	ActiveUp   (Pixmap button/options-activeup.png   -- flat) \
+# 	ActiveDown (Pixmap button/options-activedown.png -- flat) \
+# 	Inactive   (Pixmap button/options-inactive.png   -- flat)
+# AddButtonStyle 2 \
+# 	ActiveUp   (Pixmap button/close-activeup.png   -- flat) \
+# 	ActiveDown (Pixmap button/close-activedown.png -- flat) \
+# 	Inactive   (Pixmap button/close-inactive.png   -- flat)
+# AddButtonStyle 4 \
+# 	ActiveUp   (Pixmap button/maximize-active.png   -- flat) \
+# 	ActiveDown (Pixmap button/maximize-activedown.png -- flat) \
+# 	Inactive   (Pixmap button/maximize-inactive.png   -- flat)
+# AddButtonStyle 6 \
+# 	ActiveUp   (Pixmap button/iconify-activeup.png   -- flat) \
+# 	ActiveDown (Pixmap button/iconify-activedown.png -- flat) \
+# 	Inactive   (Pixmap button/iconify-inactive.png   -- flat)
+
+
+
+# Style "*"	BorderWidth 3, HandleWidth 3
+# Style "*"	BorderWidth 6
+# Style "*" BorderUnderTitle
+# BorderStyle Active Solid SteelBlue4 -- NoInset HiddenHandles
+# BorderStyle Inactive Solid #11236b -- NoInset HiddenHandles
+
+# BorderStyle Active ( Colorset 30 -- Flat )
+# BorderStyle Active TiledPixmap marble.xpm
+# BorderStyle Inactive ( Colorset 10 -- Flat )
+
+# ButtonStyle All -- UseTitleStyle
+# BorderStyle	-- HiddenHandles
+
+# BorderStyle Simple -- NoInset Flat
+# BorderStyle Active TiledPixmap button/right-bar.png
+# BorderStyle Active  button/left-bar.png
+# BorderStyle Inactive TiledPixmap button/bottom-bar.png
+
+# TitleStyle AllActive MultiPixmap \
+   # Main TiledPixmap button/mid-title-active.png
+   # LeftEnd AdjustedPixmap button/leftend.png \
+   # RightButtons AdjustedPixmap button/buttonunder.png
+
+
+# DestroyDecor DefaultDecor
+# AddToDecor Default
+
+# Mouse   0	1	A	Menu MenuFvwmWindowOps
+# Mouse	0	2	A	FuncFvwmDeleteOrDestroy
+# Mouse	0	4	A	WindowShade
+# Mouse	0	6	A	FuncFvwmIconify
+# Mouse	2	T	A	Menu MenuFvwmWindowGroupOps
+# Mouse   1	FSTW	M	FuncMove
+# Mouse   3	FSTW	M	Resize
+# Mouse   1	T	A	FuncMove
+# Mouse	3	T	A	RaiseLower
+
+# DestroyFunc FuncMove
+# AddToFunc FuncMove
+# + "I" Raise
+# + "M" Move
+# + "D" WindowShade
+# Style "*" RoundedCorners
+# DestroyFunc FuncFvwmUnReloadDecor
+# AddToFunc   FuncFvwmUnReloadDecor
+
+# DestroyFunc FuncFvwmReloadDecor
+# AddToFunc   FuncFvwmReloadDecor
+# + I FuncFvwmDecorBackground
+
+# + I AddButtonStyle 1 \
+# 	ActiveUp   (Pixmap button/options-activeup.xpm   -- flat) \
+# 	ActiveDown (Pixmap button/options-activedown.xpm -- flat) \
+# 	Inactive   (Pixmap button/options-inactive.xpm   -- flat)
+# + I AddButtonStyle 2 \
+# 	ActiveUp   (Pixmap button/close-activeup.xpm   -- flat) \
+# 	ActiveDown (Pixmap button/close-activedown.xpm -- flat) \
+# 	Inactive   (Pixmap button/close-inactive.xpm   -- flat)
+# + I AddButtonStyle 4 \
+# 	ActiveUp   (Pixmap button/maximize-activeup.xpm   -- flat) \
+# 	ActiveDown (Pixmap button/maximize-activedown.xpm -- flat) \
+# 	Inactive   (Pixmap button/maximize-inactive.xpm   -- flat)
+# + I AddButtonStyle 6 \
+# 	ActiveUp   (Pixmap button/iconify-activeup.xpm   -- flat) \
+# 	ActiveDown (Pixmap button/iconify-activedown.xpm -- flat) \
+# 	Inactive   (Pixmap button/iconify-inactive.xpm   -- flat)
+
+# DestroyFunc FuncFvwmOverRideWindowLook
+# AddToFunc   FuncFvwmOverRideWindowLook
+
+# DestroyFunc FuncFvwmStartWindowButtons
+# AddToFunc   FuncFvwmStartWindowButtons
+
+# DestroyFunc FuncFvwmStopWindowButtons
+# AddToFunc   FuncFvwmStopWindowButtons
+# + I FuncFvwmRemoveAllButtons
+# + I Mouse 0 	1	A	-
+# + I Mouse 1 	1	A	-
+# + I Mouse 2 	1	A	-
+# + I Mouse 3 	1	A	-
+# + I Mouse 0 	2	A	-
+# + I Mouse 1 	2	A	-
+# + I Mouse 2 	2	A	-
+# + I Mouse 3 	2	A	-
+# + I Mouse 0 	4	A	-
+# + I Mouse 1 	4	A	-
+# + I Mouse 2 	4	A	-
+# + I Mouse 3 	4	A	-
+# + I Mouse 0 	6	A	-
+# + I Mouse 1 	6	A	-
+# + I Mouse 2 	6	A	-
+# + I Mouse 3 	6	A	-
+# + I Mouse 0 	1	CM	-
+# + I Mouse 0 	2	CM	-
+# + I Mouse 0 	4	CM	-
+# + I Mouse 0 	6	CM	-
+
+
+# Style "*"	BorderWidth 2, HandleWidth 2
+# Style "*"	MWMBorder, MWMDecor
+# Style "*"	StippledTitle
+
+# BorderStyle	-- HiddenHandles
+
+# TitleStyle	Centered
+# TitleStyle	-- Flat
+
+
+# WindowFont fixed
+# IconFont   fixed
+# MenuStyle "*" Font fixed
+
+# AddToFunc   FuncFvwmReloadDecor
+# + I BorderStyle	Simple -- HiddenHandles NoInset
+# + I TitleStyle	-- Flat
+# + I ButtonStyle	All -- Flat
+# + I FuncFvwmOverRideWindowLook
+
+
+
+
+
+
+
+
+
+# DestroyDecor DefaultDecor
+# AddToDecor DefaultDecor
+# + TitleStyle RightJustified Height 20
+# + TitleStyle ButtonWidth 30
+# + TitleStyle InActive ( Colorset 10 -- Flat ) Active ( Colorset 11 -- Flat ) ActiveHover ( Colorset 11 -- Flat )
+# + TitleStyle InActive ( Colorset 10 -- Flat ) Active ( Colorset 11 -- Flat )
+# + AddTitleStyle Active ( TiledPixmap decor/title.png -- Flat )
+# + AddTitleStyle Inactive ( TiledPixmap decor/title.png -- Flat )
+# + ButtonStyle All InActive ( Colorset 10 -- Flat )
+# + ButtonStyle All Active ( Colorset 11 -- Flat )
+# + AddButtonStyle  1 Active TiledPixmap decor/close-active.png -- Flat
+# + AddButtonStyle  1 Inactive TiledPixmap decor/close.png -- Flat
+# + AddButtonStyle  1 ActiveHover (Pixmap decor/close-hover.png -- Flat)
+# + AddButtonStyle  2 Active TiledPixmap decor/menu-active.png -- Flat
+# + AddButtonStyle  2 Inactive TiledPixmap decor/menu.png -- Flat
+# + AddButtonStyle  2 ActiveHover (Pixmap decor/menu-hover.png -- Flat)
+# + AddButtonStyle  3 Active TiledPixmap decor/max-active.png -- Flat
+# + AddButtonStyle  3 Inactive TiledPixmap decor/max.png -- Flat
+# + AddButtonStyle  3 ActiveHover (Pixmap decor/max-hover.png -- Flat)
+# + AddButtonStyle  5 Active TiledPixmap decor/min-active.png -- Flat
+# + AddButtonStyle  5 Inactive TiledPixmap decor/min.png -- Flat
+# + AddButtonStyle  5 ActiveHover (Pixmap decor/min-hover.png -- Flat)
+# + BorderStyle Active ( Colorset 11 -- Flat )
+# + BorderStyle Active ( Pixmap decor/bottom-bar.png )
+# + BorderStyle Inactive ( Colorset 10 -- Flat )
+# + ButtonState Hover true
+# + ButtonStyle 1 - Clear
+# + ButtonStyle 2 - Clear
+# + ButtonStyle 3 - Clear
+# + ButtonStyle 5 - Clear
+
+
+# Style * UseDecor DefaultDecor
+
+
+#------------------------------------------------------------------------------
+#  Window Decoration
+#------------------------------------------------------------------------------
+
+# Style * BorderWidth 1
+# Style * HandleWidth 1
+# Style * DecorateTransient
+# Style * Colorset 40
+# Style * HilightColorset 0
+# Style * Font "xft:DIN\-Light:size=8"
+
+# DestroyDecor Default
+# AddToDecor   Default
+# + TitleStyle LeftJustified Height 17
+# + TitleStyle Active Vector 6 0x2@1 100x2@1 100x93@4 0x93@1 0x99@4 100x99@0 -- Flat
+# + TitleStyle Inactive Vector 6 0x2@1 100x2@1 100x93@4 0x93@1 0x99@4 100x99@0 -- Flat
+# + BorderStyle Colorset 1 -- HiddenHandles NoInset
+# + ButtonStyle All ActiveUp (-- Flat)
+# + ButtonStyle All InactiveUp (-- Flat)
+# + AddButtonStyle 2 Vector 22 0x2@1 99x2@1 99x93@1 0x93@1 0x99@4 100x99@0 0x93@4 0x89@1 0x78@4 0x78@1 0x67@4 0x67@1 0x56@4 0x56@1 0x45@4 0x45@1 0x34@4 0x34@1 0x23@4 0x23@1 0x12@4 0x12@1
+# + AddButtonStyle 4 Vector 22 0x2@1 100x2@1 100x93@4 0x93@1 0x99@0 100x99@0 0x93@4 0x89@1 0x78@4 0x78@1 0x67@4 0x67@1 0x56@4 0x56@1 0x45@4 0x45@1 0x34@4 0x34@1 0x23@4 0x23@1 0x12@4 0x12@1
+# + AddButtonStyle 6 Vector 22 0x2@1 100x2@1 100x93@4 0x93@1 0x99@0 100x99@0 0x93@4 0x89@1 0x78@4 0x78@1 0x67@4 0x67@1 0x56@4 0x56@1 0x45@4 0x45@1 0x34@4 0x34@1 0x23@4 0x23@1 0x12@4 0x12@1
+# + AddButtonStyle 1 Vector 6 99x2@1 0x2@1 0x93@1 99x93@1 100x99@4 0x99@0
+
+# DestroyDecor Alternate
+# AddToDecor   Alternate
+# + BorderStyle Colorset 3 -- HiddenHandles NoInset Flat
+
+
+# DestroyDecor MyDecor
+# AddToDecor   MyDecor
+# + TitleStyle LeftJustified Height 18
+# + ButtonStyle 1 ActiveUp Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# + ButtonStyle 1 ActiveDown Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# + ButtonStyle 1 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# + ButtonStyle 3 ActiveUp Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# + ButtonStyle 3 ActiveDown Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# + ButtonStyle 3 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# + ButtonStyle 5 ActiveUp Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# + ButtonStyle 5 ActiveDown Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# + ButtonStyle 5 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# + TitleStyle -- Flat
+# + BorderStyle Simple -- NoInset Flat
+# + ButtonStyle All -- UseTitleStyle
+
+
+# AddToDecor NormalDecor
+# + BorderStyle Simple
+# + TitleStyle  -- Raised
+# + ButtonStyle Reset
+# + ButtonStyle All -- Raised
+# + ButtonStyle 1 Inactive  Vector 5 25x40@1 25x60@1 75x60@0 75x40@0 25x40@1
+# + ButtonStyle 3 Inactive  Vector 3 60x20@0 60x40@0 80x40@1 80x60@0 60x60@0 60x80@0 40x80@0 40x60@1 20x60@0 20x40@1 40x40@1 40x20@1 60x20@1
+# + ButtonStyle 6 Inactive  Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+# + ButtonStyle 4 InActive  Vector 5 25x25@1 25x75@1 75x75@0 75x25@0 25x25@1
+# + ButtonStyle 2 InActive  Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+
+# Style * UseDecor NormalDecor
+
+
+
+
+
+
+
+# for the titlebar buttons
+# Mouse 0 1    A     Menu MenuFvwmWindowOps2 Close
+# Mouse 0 2    A     Maximize 0 80
+# Mouse 0 4    A     Iconify
+
+
+# for the titlebar buttons
+# Mouse 0 1    A     Close
+# Mouse 0 3    A     Iconify
+# Mouse 0 5    A     Maximize 80 90    # H V
+# Mouse 0 2    A     Menu MenuFvwmWindowOps2
+
+# # Button Style Changes
+# ButtonStyle Reset
+# # Horiz bars for the window ops menu (rightmost)
+# ButtonStyle 2 12 10x23@0 90x23@0 90x28@0 10x28@1 10x47@1 90x47@0
+# 90x52@0 10x52@1 10x70@2 90x70@0 90x76@0 10x76@1
+# # Standard X for the close button (leftmost)
+# ButtonStyle 1 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0
+# 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0
+# 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+# # Horiz bar means iconify
+# ButtonStyle 3 Default 1
+# # large plus symbol means maximize
+# ButtonStyle 5  13 60x20@0 60x40@0 80x40@1 80x60@0 60x60@0 60x80@0
+# 40x80@0 40x60@1 20x60@0 20x40@1 40x40@1 40x20@1 60x20@1

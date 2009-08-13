@@ -1,0 +1,56 @@
+#key bindings {{{1
+#
+#definitions hint:
+#Key / Mouse Button Context Modifiers Function
+#Defines a mouse binding, or removes the binding if Function is
+#'-'. Button is the mouse button number. If Button is zero then any
+#button performs the specified function.
+
+#
+#Context
+#   'R' for the root window,
+#   'W' for an application window,
+#   'D' for a desktop application ,
+#   'T' for a window title-bar,
+#   'S' for a window side, top, or bottom bar,
+#   '[', ']','-' and '_' for the left, right, top or bottom side only,
+#   'F' for a window frame (the corners),
+#   '<', '^', '>' and 'v' for the top left, top right, bottom right or bottom left corner,
+#   'I' for an Icon window,
+#   '0' through '9' for title-bar buttons,
+#   'A' is for any context.
+#
+#Modifiers  'N' for no modifiers,  'C' for control,  'S' for shift,  'M' for Meta,
+#           'L' for Caps-Lock, 'A' for any modifier,  1-5    mod1 through mod5
+#           modifier 'L' is ignored (see  IgnoreModifiers)
+
+
+Mouse 1 1 A close
+Mouse 3 1 A Menu MenuFvwmWindowOps
+Mouse 3 W 4 Menu MenuFvwmWindowOps
+Mouse 1 3 A Max
+Mouse 1 5 A Iconify
+
+Mouse 1 FSTW   M FuncFvwmRaiseLowerX Move
+
+Mouse 4 FSTW   S Exec exec transset-df --min 0.1 -p --dec 0.2
+Mouse 5 FSTW   S Exec exec transset-df -p --inc 0.1
+
+# Mouse 1 I A PlaceIcon
+# Mouse 1 1 A Menu MenuFvwmWindowOps
+# Mouse 1 2 A close
+# Mouse 2 R A WindowList
+# Mouse 1 4 A Max
+# Mouse 3 4 A Maximize2
+# Mouse 2 T A CentreWindow 0 0 Animated
+# Mouse 1 6 A Iconify
+# Mouse 4 T A WindowShade true
+# Mouse 5 T A WindowShade false
+# Mouse 3 T A RaiseAndResize
+# Mouse 4 R A WheelScroll down
+# Mouse 5 R A WheelScroll up
+# Mouse 3 R A Menu MenuFvwmRoot
+
+# workspace scrolling
+Mouse 4 R A Scroll 100 100
+Mouse 5 R A Scroll -100 -100

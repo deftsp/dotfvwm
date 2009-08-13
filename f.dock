@@ -1,0 +1,37 @@
+SetEnv MyDockHeight 300
+PipeRead "echo SetEnv PosDock $$(( ($[vp.height]-$[MyDockHeight]) / 2))"
+
+DestroyModuleConfig MyDock : *
+Style MyDock !Iconifiable, !Borders
+*MyDock: Geometry 60x300-0+$[PosDock]
+*MyDock: Colorset 1
+*MyDock: Rows 6
+*MyDock: Columns 1
+*MyDock: frame 0
+*MyDock: Padding 0 0
+
+*MyDock: (1x1, Icon 48x48/net.png,\
+	PressIcon 24x24/net.png,\
+	Action (Mouse 1 ) Exec firefox,Action (Mouse 3 ) Exec dillo)
+*MyDock: ( 1x1, Icon 48x48/term.png,\
+	PressIcon 24x24/term.png,\
+	Action (Mouse 1 ) Exec aterm,\
+	Action (Mouse 3) Module FvwmConsole -terminal aterm )
+*MyDock: (1x1, Icon 48x48/drive.png,\
+	PressIcon 24x24/drive.png,\
+	Action (Mouse 1 ) Exec rox ,\
+	Action (Mouse 3 ) Exec rox .fvwm,\
+	Action (Mouse 2 ) Exec sudo rox / )
+*MyDock: (1x1, Icon 48x48/films.png,\
+	PressIcon 24x24/films.png,\
+	Action (Mouse 1)Exec xine,\
+	Action (Mouse 3) Menu MenuFilm window -130m c-10m
+*MyDock: (1x1, Icon 48x48/music.png,\
+	PressIcon 24x24/music.png,\
+	Action (Mouse 1)Exec beep-media-player)
+*MyDock: (1x1, Icon 48x48/vim.png,\
+	PressIcon 24x24/vim.png,\
+	Action (Mouse 1 ) Exec gvim .fvwm/.fvwm2rc,\
+	Action (Mouse 3 ) Exec gvim .fvwm/scripts/conkyrc,\
+	Action (Mouse 2 ) Exec gvim )
+

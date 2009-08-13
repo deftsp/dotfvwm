@@ -1,0 +1,26 @@
+#!/bin/bash
+
+NOW=`date '+%Y-%m-%d-%H-%M-%S'`
+if [ -z $2 ]; then
+    FNAME=import-${NOW}
+else
+    FNAME="[$2]-${NOW}"
+fi
+EXT=png
+
+SCRDIR=${HOME}/foo/screenshots/
+if [ ! -d "${SCRDIR}" ]; then
+    mkdir -p "${SCRDIR}"
+    echo "${SCRDIR} was missing. I recreated it for you."
+fi
+
+if [ -z $1 ]; then
+    import -frame ${SCRDIR}${FNAME}.${EXT}
+else
+    # cmd="import -frame -window $1 ${SCRDIR}${FNAME}.${EXT}"
+    scrot -d 3 '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/foo/screenshots/'
+fi
+
+# eval $cmd
+echo Screenshot ${SCRDIR}${FNAME}.${EXT} | osd_cat -f "-xos4-terminus-*-*-*-*-*-200-*-*-*-*-*-*" -p top -o 35 -A right \
+    -c "#e243b6" -i 12

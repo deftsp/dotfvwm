@@ -1,0 +1,47 @@
+
+####################FvwmTaskBar######################
+DestroyModuleConfig FvwmTaskBar: *
+Style FvwmTaskBar NoTitle, WindowListSkip, CirculateSkip, Sticky, BorderWidth 0, NoHandles, StaysOnBottom
+Style FvwmTaskBar NeverFocus, Layer 0
+
+*FvwmTaskBar: Geometry +0+0
+*FvwmTaskBar: Rows 1
+*FvwmTaskBar: Font "xft:华文黑体:pixelsize=12"
+# the font to be used for the depressed buttons.
+*FvwmTaskBar: SelFont "xft:华文黑体:pixelsize=12"
+*FvwmTaskBar: Colorset 26
+*FvwmTaskBar: FocusColorset 27
+# *FvwmTaskBar: AutoHide 3
+*FvwmTaskBar: AutoStick
+*FvwmTaskBar: UseSkipList
+# Tells FvwmTaskBar to show only windows that are on the same page as the task bar.
+*FvwmTaskBar: PageOnly
+# Specifies the space (in pixels) between the window buttons.
+*FvwmTaskBar: Pad 0
+*FvwmTaskBar: ShowTips
+*FvwmTaskBar: TipsColorset 0
+*FvwmTaskBar: StartName Gentoo
+*FvwmTaskBar: StartMenu MenuFvwmRoot mouse -100p -104m
+# *FvwmTaskBar: NoBrightFocus
+# *FvwmTaskBar: 3DFvwm
+# *FvwmTaskBar: MailCheck 0
+
+# *FvwmTaskBar: Back #3B3B3B
+# *FvwmTaskBar: Fore white
+# *FvwmTaskBar: FocusFore cornsilk
+# *FvwmTaskBar: IconBack #3B3B3B
+# *FvwmTaskBar: IconFore white
+# *FvwmTaskBar: ClockFormat R %m/%d
+# the position of menu
+# *FvwmTaskBar: Action Click 3 Menu MenuFvwmWindowOps mouse -1p -100m
+
+
+#*FvwmTaskBar: MailCommand Exec exec rxvt -e mutt
+#*FvwmTaskBar: Button NoTitle , Icon home.png, Action (Mouse 1) Exec exec kfmclient openURL $HOME
+*FvwmTaskBar: Button NoTitle , Icon icons/mplayer.png, Action (Mouse 1) Exec exec gmplayer
+# *FvwmTaskBar: Button NoTitle , Icon xmms.png, Action (Mouse 1) Exec exec xmms
+# *FvwmTaskBar: Button NoTitle , Icon stardict.png, Action (Mouse 1) Exec exec stardict
+# *FvwmTaskBar: Button NoTitle , Icon ark.png, Action (Mouse 1) Exec exec ark
+*FvwmTaskBar: Button NoTitle , Icon icons/gimp.png, Action (Mouse 1) Exec exec gimp
+*FvwmTaskBar: Button NoTitle , Icon icons/terminal.png, Action (Mouse 1) Exec exec urxvt
+*FvwmTaskBar: Button NoTitle , Icon icons/emacs.png, Action (Mouse 1) Exec exec emacs

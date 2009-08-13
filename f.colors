@@ -1,0 +1,57 @@
+
+Defaultcolorset 6
+# for transparency to work, you *must* have something on the root window for the pixmap to be inherited.
+
+#MyDock
+Colorset 1 fg black, bg black, fgsh black, hi black, RootTransparent Buffer, Tint steelblue 6
+#### Menu
+Colorset 0 fg #ffffff, fgsh #000000, bg #000000, hi #ffffff, sh #ffffff, Translucent #666666 60
+Colorset 1 fg #e0e0e0, fgsh #000000, bg #111111, hi #000000, sh #000000, Translucent #666666 80
+Colorset 2 fg #ffffff, bg #000000
+
+#### BorderStyle
+Colorset 10 fg #ffffff, bg #afafaf
+Colorset 11 fg #ffffff, bg #696969
+
+# IconBox
+Colorset 8 bg #ffffff, RootTransparent buffer
+# MyBarre
+Colorset 3 fg #434474, bg #202020, fgsh black ,pixmap titre.png, Shape shape.png
+# FvwmStalonePanel
+Colorset 30 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 0
+
+# Windows
+Colorset 4 fg grey, bg #434474,fgsh black
+#### Pager
+Colorset 20 fg #bececc, bg #bac5cd,  RootTransparent, Tint #666666 30
+Colorset 21 fg black, bg #7d807e,  RootTransparent, Tint #666666 10
+Colorset 22 fg #d3d7cf, bg #222222,  RootTransparent, Tint #666666 0
+Colorset 23 fg #ffffff, bg red,  RootTransparent, Tint #666666 45
+
+
+# geometry
+Colorset 6 fg gray, bg #000000, hi #000000 ,fgsh #000000
+#Hilighted Windows
+Colorset 7 fg #434474, bg #434474,fgsh black
+
+
+Colorset 52 fg #e0e0e0, fgsh #000000, bg #111111, hi #000000, sh #000000, Translucent #666666 80
+
+#### TaskBar
+# Colorset 26 fg #e0e0e0, fgsh #000000, bg #000000, RootTransparent, Tint #666666 00, IconAlpha 30
+# Colorset 27 fg #ffffff, fgsh #000000, bg #000000, RootTransparent, Tint #666666 00, IconAlpha 100
+
+
+#### Iconbox
+# Colorset 30 fg #ffffff, fgsh #000000, bg #000000, RootTransparent, Tint #666666 00, IconAlpha 20
+# Colorset 31 fg #ffffff, fgsh #ffffff, bg #ffffff, RootTransparent, Tint #666666 00, IconAlpha 20
+# Colorset 32 fg #ffffff, fgsh #ffffff, bg #ffffff, RootTransparent, Tint #666666 00, IconAlpha 20
+#### Buttons
+# Colorset 40 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 50
+# Colorset 41 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 50
+# Colorset 42 fg #e0e0e0, bg #999999, RootTransparent, Tint #666666 50
+# Colorset 43 fg #e0e0e0, bg #202020, Pixmap $[fvwm_buttons]/panel_1600.png,  RootTransparent, Tint #000000 50
+# Colorset 44 fg #e0e0e0, bg #202020, Pixmap $[fvwm_buttons]/panel_1280.png,  RootTransparent, Tint #000000 50
+# Colorset 45 fg #e0e0e0, bg #202020, Pixmap $[fvwm_buttons]/panel_1400.png,  RootTransparent, Tint #000000 50
+### transparent set
+# Colorset 50 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 30

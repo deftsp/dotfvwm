@@ -1,0 +1,9 @@
+CursorStyle root	left_ptr
+CursorStyle default	left_ptr
+CursorStyle position	left_ptr
+CursorStyle sys		left_ptr
+CursorStyle menu	left_ptr
+CursorStyle title	left_ptr
+CursorStyle resize	fleur
+CursorStyle stroke	cross
+CursorStyle select	draped_box

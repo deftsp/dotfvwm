@@ -1,0 +1,196 @@
+# fvwm key config
+
+Key Print A A Exec exec $[fvwm_scripts]/capture-screen root
+Key Print A M Exec exec $[fvwm_scripts]/capture-screen
+# Key Print A CM Exec exec $[fvwm_scripts]/capture-screen -5
+
+Key Tab A M WindowList Root c c  CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+# Key Tab A M Next (Visible, AcceptsFocus) Focus
+# Key C     A M     Exec exec  apwal
+
+
+Key F1 A M GotoDesk 0 0 0 3
+Key F2 A M GotoDesk 0 1 0 3
+Key F3 A M GotoDesk 0 2 0 3
+Key F4 A M GotoDesk 0 3 0 3
+
+Key u A 4 GotoPage 0 0
+Key i A 4 GotoPage 1 0
+Key j A 4 GotoPage 0 1
+Key k A 4 GotoPage 1 1
+
+# AddToFunc SelectWindow
+# + I Focus
+# + I Iconify false
+# + I Raise
+# + I WarpToWindow 60 20p
+
+# http://fvwm.lair.be/viewtopic.php?f=33&t=1801
+DestroyFunc SelectWindow
+AddToFunc SelectWindow
++ I Raise
++ I Iconify false
++ I FlipFocus
++ I WarpToWindow 60 25p
+
+
+DestroyFunc Run-Or-Raise-Emacs
+AddToFunc   Run-Or-Raise-Emacs
++ I All ('emacs', CurrentScreen) SelectWindow
++ I TestRc (NoMatch) None ('Emacs', CurrentScreen) Exec exec emacs
+
+DestroyFunc Run-Or-Raise-Firefox
+AddToFunc   Run-Or-Raise-Firefox
++ I All ('Firefox', CurrentScreen) SelectWindow
++ I TestRc (NoMatch) None ('Firefox', CurrentScreen) Exec exec firefox
+
+
+DestroyFunc Run-Or-Raise-URxvt
+AddToFunc   Run-Or-Raise-URxvt
++ I All ('URxvt', CurrentScreen) SelectWindow
++ I TestRc (NoMatch) None ('URxvt', CurrentDesk) Exec exec urxvt
+
+DestroyFunc Run-Or-Raise-Stardict
+AddToFunc   Run-Or-Raise-Stardict
++ I All ('Stardict', CurrentScreen) SelectWindow
++ I TestRc (NoMatch) None ('Stardict', CurrentScreen) Exec exec stardict
+
+DestroyFunc Run-Or-Raise-Xpdf
+AddToFunc   Run-Or-Raise-Xpdf
++ I All ('Xpdf', CurrentDesk) SelectWindow
+
+Key x A 4 Run-Or-Raise-Xpdf
+
+DestroyFunc Run-Or-Raise-FvwmConsole
+AddToFunc   Run-Or-Raise-FvwmConsole
++ I All ('FvwmConsole', CurrentDesk) SelectWindow
++ I TestRc (NoMatch) None ('FvwmConsole', CurrentDesk) FvwmConsole
+
+DestroyFunc Run-Or-Raise-VirtualBox
+AddToFunc   Run-Or-Raise-VirtualBox
++ I All (!"Sun VirtualBox", "*VirtualBox", CurrentScreen) SelectWindow
++ I TestRc (Match) Break
++ I All ("Sun VirtualBox", CurrentScreen) SelectWindow
++ I TestRc (NoMatch) None ("Sun VirtualBox", CurrentScreen) Exec exec VirtualBox
+
+
+########################
+DestroyFunc ToggleStaysOnTop
+AddToFunc ToggleStaysOnTop
++ I ThisWindow (Layer 6) Layer 0 4
++ I TestRc (NoMatch) Layer 0 6
+
+
+
+########################################################################
+# Use menu to the same work
+DestroyFunc Ctrl-I-Action
+AddToFunc   Ctrl-I-Action
++ I Key B       A N Exec exec dynamic-pdf-select
++ I Key C       A N Run-Or-Raise-FvwmConsole
++ I Key I       A N Iconify
++ I Key J       A C Run-Or-Raise-Emacs
++ I Key J       A N Run-Or-Raise-Firefox
++ I Key Return  A N Run-Or-Raise-URxvt
++ I Key Return  A C MaximizeGrow
++ I Key M       A N Menu MenuFvwmRoot Root +0 +20p
++ I Key S       A N WindowShade
++ I Key T       A N ToggleStaysOnTop
++ I Key K       A N close
++ I Key D       A S ShowDesktop
++ I Key D       A N Run-Or-Raise-Stardict
++ I Key D       A M StardictToggleScan
++ I Key Space   A N StardictToggleScan
++ I Key V       A N Run-Or-Raise-VirtualBox
++ I Key X       A N Exec exec dmenu_run
++ I Key W       A N Menu MenuFvwmWindowOps Window +0 +18p    # W-Key-Action
+# + I Key I       A C LastWindow
++ I Key I       A C Prev SelectWindow
++ I Key P       A N Prev SelectWindow
++ I Key N       A N Next SelectWindow
+# + I Key Q       A S Quit
+
+# optionally popup a promptxxxxxx window here
++ I Schedule 300 Key B      A N -
++ I Schedule 300 Key C      A N -
++ I Schedule 300 Key I      A N -
++ I Schedule 300 Key J      A C -
++ I Schedule 300 Key J      A N -
++ I Schedule 300 Key Return A N -
++ I Schedule 300 Key Return A C -
++ I Schedule 300 Key M      A N -
++ I Schedule 300 Key S      A N -
++ I Schedule 300 Key T      A N -
++ I Schedule 300 Key K      A N -
++ I Schedule 300 Key D      A S -
++ I Schedule 300 Key D      A N -
++ I Schedule 300 Key D      A M -
++ I Schedule 300 Key Space  A N -
++ I Schedule 300 Key V      A N -
++ I Schedule 300 Key X      A N -
++ I Schedule 300 Key W      A N -
++ I Schedule 300 Key I      A C -
+# define again for use C-I C-I
++ I Schedule 300 Key I      A C Ctrl-I-Action
++ I Schedule 300 Key P      A N -
++ I Schedule 300 Key N      A N -
+# + I Schedule 300 Key Q      A N -
+# Press Ctrl-Alt-F and then "x" or "c"
+Key I A C Ctrl-I-Action
+
+################################################################
+
+Key Left A 4 Exec exec 3ddesk --view=goleft --noautofun
+Key Right A 4 Exec exec 3ddesk --view=goright --noautofun
+
+# Key Up 		A S Exec sudo mount /dev/hdd /mnt/dvd && rox /mnt/dvd
+# Key Down	A S Exec sudo umount /dev/hdd
+
+Key Space A 4 Exec exec mpc toggle
+Key n     A 4 Exec exec mpc next
+Key p     A 4 Exec exec mpc prev
+
+
+# Key XF86AudioRaiseVolume 	A 	A 	Exec exec amixer set PCM 2%+
+# Key XF86AudioLowerVolume 	A 	A 	Exec exec amixer set PCM 2%-
+Key XF86AudioRaiseVolume 	A 	A 	Exec exec volume +
+Key XF86AudioLowerVolume 	A 	A 	Exec exec volume -
+
+Key XF86AudioMute           A   A   Exec exec amixer set Master toggle
+Key XF86AudioMute           A   A   Exec exec volume Master m
+
+
+
+###################
+DestroyFunc W-Key-Action
+AddToFunc W-Key-Action
++ I Key M       A N Move
++ I Key R       A N Resize
++ I Key I       A N Module FvwmIdent
+##
++ I Schedule 300 Key M      A N -
++ I Schedule 300 Key R      A N -
++ I Schedule 300 Key I      A N -
+
+##################################################
+
+
+
+# Hit Alt+ESC to toggle FvwmProxy, which allows you to see all windows on your
+# desktop, even if they''ve been obscured..really cool.
+##################
+DestroyModuleConfig FvwmProxy: *
+*FvwmProxy: Font "xft:微软雅黑:pixelsize=12"
+# *FvwmProxy: ProxyMove false
+
+Key Escape A M SendToModule FvwmProxy ShowToggle
+
+# Key Tab A SM SendToModule FvwmProxy ShowToggle
+
+
+# Key Tab A M SendToModule FvwmProxy Circulate \
+#                    ScanForWindow East South (CurrentPage)
+# Key Tab A SM SendToModule FvwmProxy Circulate \
+#                    ScanForWindow West North (CurrentPage)
+
+# *FvwmProxy: Action ModifierRelease M SendToModule FvwmProxy Hide

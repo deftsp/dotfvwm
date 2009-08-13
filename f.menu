@@ -1,0 +1,305 @@
+
+# Mouse 1 A       4       Menu MenuFvwmRoot Root +0 +20p
+
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot  "$[gt.Root Menu]"             Title
++                       "&1. XTerm"                   Exec exec xterm
++                       "&2. URxvt"                   Exec exec urxvt
++                       "&H. Fvwm Help"               Popup MenuFvwmHelp
++                       "&C. Fvwm Console"            Module FvwmConsole
++                       "&F. Refresh"                 Refresh
++                       "&R. Restart"                 Restart
++                       "&X. Exit Fvwm"               Popup MenuFvwmQuitVerify
++                       "&Q. Quit System"             Popup MenuQuitSystem
+
+
+
+DestroyFunc	FvwmViewManPage
+AddToFunc  	FvwmViewManPage
++ I exec exec xterm -g 90x60-0+21 -n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
+
+
+DestroyMenu	MenuFvwmHelp
+AddToMenu   	MenuFvwmHelp
++ "Fvwm"		FvwmViewManPage fvwm
++ "FvwmAnimate"		FvwmViewManPage FvwmAnimate
++ "FvwmAuto"		FvwmViewManPage FvwmAuto
++ "FvwmBacker"		FvwmViewManPage FvwmBacker
++ "FvwmBanner"		FvwmViewManPage FvwmBanner
++ "FvwmButtons"		FvwmViewManPage FvwmButtons
++ "FvwmCommand"		FvwmViewManPage FvwmCommand
++ "FvwmConsole"		FvwmViewManPage FvwmConsole
++ "FvwmConsoleC.pl"	FvwmViewManPage FvwmConsoleC.pl
++ "FvwmCpp"		FvwmViewManPage FvwmCpp
++ "FvwmDebug"		FvwmViewManPage FvwmDebug
++ "FvwmDragWell"	FvwmViewManPage FvwmDragWell
++ "FvwmEvent"		FvwmViewManPage FvwmEvent
++ "FvwmForm"		FvwmViewManPage FvwmForm
++ "FvwmGtk"		FvwmViewManPage FvwmGtk
++ "FvwmGtkDebug"	FvwmViewManPage FvwmGtkDebug
++ "FvwmIconBox"		FvwmViewManPage FvwmIconBox
++ "FvwmIconMan"		FvwmViewManPage FvwmIconMan
++ "FvwmIdent"		FvwmViewManPage FvwmIdent
++ "FvwmM4"		FvwmViewManPage FvwmM4
++ "FvwmPager"		FvwmViewManPage FvwmPager
++ "FvwmPerl"		FvwmViewManPage FvwmPerl
++ "FvwmProxy"		FvwmViewManPage FvwmProxy
++ "FvwmRearrange"	FvwmViewManPage FvwmRearrange
++ "FvwmSave"		FvwmViewManPage FvwmSave
++ "FvwmSaveDesk"	FvwmViewManPage FvwmSaveDesk
++ "FvwmScript"		FvwmViewManPage FvwmScript
++ "FvwmScroll"		FvwmViewManPage FvwmScroll
++ "FvwmTaskBar"		FvwmViewManPage FvwmTaskBar
++ "FvwmTheme"		FvwmViewManPage FvwmTheme
++ "FvwmWharf"		FvwmViewManPage FvwmWharf
++ "FvwmWinList"		FvwmViewManPage FvwmWinList
++ "FvwmWindowMenu"	FvwmViewManPage FvwmWindowMenu
++ "" Nop
++ "fvwm-config"		FvwmViewManPage fvwm-config
++ "fvwm-perllib"	FvwmViewManPage fvwm-perllib
++ "fvwm-root"		FvwmViewManPage fvwm-root²
++ "fvwm-bug"		FvwmViewManPage fvwm-bug
++ "fvwm-convert-2.4"	FvwmViewManPage fvwm-convert-2.4
++ "" Nop
++ "fvwm-menu-desktop"	FvwmViewManPage fvwm-menu-desktop
++ "fvwm-menu-directory"	FvwmViewManPage fvwm-menu-directory
++ "fvwm-menu-headlines"	FvwmViewManPage fvwm-menu-headlines
++ "fvwm-menu-xlock"	FvwmViewManPage fvwm-menu-xlock
+
+
+##########################################################################
+
+# AddToMenu Module-Popup "Control Animation" Popup MenuFvwmAnimate
+
+
+#####
+# fvwm Window Operation Menu
+###########
+DestroyMenu MenuFvwmWindowOps
+AddToMenu	MenuFvwmWindowOps
++ "&M. Move"		    Move
++ "&R. Resize"		    Resize
++ "&P. MoveToPage"		Popup MenuFvwmSendTo
++ "&D. MoveToDesktop"   PopUp MenuFvwmMoveToDesk
+# + "&I. (De)Iconify"		Iconify
++ "(Un)Maximize"	Maximize
++ "(Un)Shade"		WindowShade
++ "S. (Un)Stick"		Stick
++ "&K Close"		Close
++ "Delete"		Delete
++ "Destroy"		Destroy
++ "&T. StaysOnTop"		Pick (CirculateHit) Layer 0 6
++ "&O. StaysPut"		Pick (CirculateHit) Layer 0 4
++ "&B. StaysOnBottom"	Pick (CirculateHit) Layer 0 2
++ "&I. Identify"		Module FvwmIdent
+
+############################################################################
+
+DestroyMenu	MenuFvwmSendTo
+AddToMenu	MenuFvwmSendTo
++ "Bureau &1"		MoveToPage 0 0
++ "Bureau &2"		MoveToPage 1 0
++ "Bureau &3"		MoveToPage 0 1
++ "Bureau &4"		MoveToPage 1 1
+
+DestroyMenu	MenuFvwmMoveToDesk
+AddToMenu	MenuFvwmMoveToDesk
++ "Desktop &1"		MoveToDesk 0 0
++ "Desktop &2"		MoveToDesk 0 1
++ "Desktop &3"		MoveToDesk 0 2
++ "Desktop &4"		MoveToDesk 0 3
+
+# DestroyMenu Principal
+# AddToMenu Principal
+# Test (x mrxvt)+ %24x24/apps/gnome-terminal.png%" Terminal" exec exec mrxvt
+# + %24x24/apps/gnome-terminal.png%" Xterm" exec exec xterm -fg white -bg black
+# + %24x24/apps/gnome-globe.png%" Net"  popup net
+# + %24x24/apps/gnome-grecord.png%" Multimedia"  popup multimedia
+# + %24x24/apps/gnome-joystick.png%" Games" popup Games
+# + %24x24/apps/sodipodi.png%" Tools"  popup tools
+# + %24x24/apps/gnome-settings-theme.png%" Devel"  popup devel
+# + %24x24/apps/gnome-system-config.png%" System" popup system
+#  nop
+# + %24x24/reboot.png%" Restart" restart
+# + %24x24/logout24.png%" Quit" quit
+
+# AddToMenu net
+# + %24x24/apps/gnome-globe.png%" Ncftp" Exec exec mrxvt -e ncftp
+# + %24x24/apps/gaim.png%" Gaim" Exec exec gaim
+# + %24x24/apps/gnome-netstatus-rx.png%" Bittorrent" Exec exec bittorrent
+# + %24x24/aMule.png%" aMule" Exec exec amule
+
+# AddToMenu multimedia
+# + %24x24/devices/gnome-dev-cdwriter.png%" RipperX" Exec ripperX
+# + %24x24/audacity.png%" Audacity" Exec audacity
+# + %24x24/streamtuner.png%" Streamtuner" Exec streamtuner
+# + %24x24/devices/gnome-dev-cdwriter.png%" Graveman" Exec graveman
+
+# AddToMenu tools
+# + %24x24/apps/abiword_48.png%"Abiword" Exec abiword
+# + %24x24/apps/inkscape.png%" The gimp" Exec gimp-2.2
+# + %24x24/apps/gcalctool.png%" X-calc"   Exec xcalc
+# + %24x24/apps/inkscape.png%" Gcolor"  Exec gcolor2
+# + %24x24/apps/sodipodi.png%" Xmag"  Exec xmag
+
+
+# AddToMenu devel
+# + %24x24/apps/gnome-settings-ui-behavior.png%" Nvu" Exec nvu
+# + %24x24/apps/gnome-window-manager.png%" QT designer" Exec /opt/qt/bin/designer
+# + %24x24/apps/gnome-terminal.png%" Python"  Exec idle
+
+
+# AddToMenu system
+# + %24x24/apps/gnome-settings-background.png%"Settings" popup settings
+# + %24x24/nvidia.png%" Nv-settings"  Exec nvidia-settings
+# + %24x24/apps/gnome-settings.png%" xcomp start" Exec xcompmgr -c
+# + %24x24/apps/gnome-settings.png%" xcomp stop" Exec killall xcompmgr
+# + %24x24/apps/gnome-settings-background.png%" GTK-center"  Exec gtk-chtheme
+# + %24x24/apps/gnome-settings-background.png%" QT-center"  Exec /opt/qt/bin/qtconfig
+# + %24x24/reboot.png%" Reboot" Exec sudo shutdown -r now
+# + %24x24/logout24.png%" Off" Exec sudo shutdown -h now
+
+# AddToMenu	Games
+# + %24x24/apps/gnome-joystick.png%"Emulateurs" \
+# 	exec exec emu
+# + %24x24/et.png%"Enemy-territory" \
+# 	exec exec et
+# + %24x24/apps/gnome-joystick.png%"Never Winter Nights" \
+# 	exec exec nwn
+# + %24x24/cedega.png%" Cedega" Exec exec cedega
+
+
+
+#####
+# WallpaperBrowser function
+##################
+# DestroyFunc	WallpaperBrowser
+# AddToFunc	WallpaperBrowser
+# + I DestroyMenu recreate MenuWallpaper
+# + I AddToMenu	MenuWallpaper
+# + I PipeRead '$[Scripts]/wallpaper.sh $[Backgrounds]'
+
+# DestroyMenu	MenuWallpaper
+# AddToMenu	MenuWallpaper
+# + DynamicPopupAction	Function WallpaperBrowser
+
+
+#####
+# FilmBrowser
+##################
+# DestroyFunc 	FilmBrowser
+# AddToFunc	FilmBrowser
+# + I DestroyMenu recreate MenuFilm
+# + I AddToMenu	MenuFilm
+# + I PipeRead	'$[Scripts]/filmbrowser.sh'
+
+# AddToMenu	MenuFilm
+# + DynamicPopupAction	Function FilmBrowser
+
+#####
+# Autohide console example: http://dev.gentoo.org/~taviso/screenshots/autohide_console.png
+##################
+# DestroyFunc StartHiddenConsole
+# AddToFunc StartHiddenConsole
+# + I Exec exec aterm +sb -geometry 144x8+0-0 -name HiddenConsole
+# + I Wait HiddenConsole
+# + I Next (HiddenConsole) Resize $[vp.width]p 9
+# + I Autohide HiddenConsole 0 0 S
+
+# Set the delays on Showing and Hiding here for the AutoHide functions.
+# DestroyFunc FuncAutoEnter
+# AddToFunc FuncAutoEnter
+# + I Autohide HiddenConsole 500 500 S
+
+# XXX: This doesnt change focus, should it?
+# DestroyFunc HiddenConsoleKeyBinding
+# AddToFunc HiddenConsoleKeyBinding
+# + I ThisWindow (Shaded) FuncAutoEnter
+# + I TestRc (NoMatch) NoWindow FuncAutoEnter
+
+####
+# These functions modified from the functions provided in the fvwm FAQ.
+# http://www.fvwm.org/documentation/faq/#7.17
+#################
+# AddToFunc Autohide
+# + I ThisWindow ($0) Deschedule $[w.id]
+# + I TestRc (!Match) Deschedule -$[w.id]
+# + I ThisWindow ($0) ThisWindow (shaded) AutohideShow $1 $3
+# + I TestRc (!Match) All ($0, !shaded) AutohideHide $2 $3
+
+# AddToFunc AutohideShow
+# + I Schedule $0 -$[w.id] WindowShade $1 off
+# + I Schedule $0 -$[w.id] Raise
+# + I Schedule $0 -$[w.id] Deschedule $[w.id]
+# + I Schedule $0 -$[w.id] Deschedule -$[w.id]
+
+# AddToFunc AutohideHide
+# + I Schedule $0 $[w.id] WindowShade $1 on
+# + I Schedule $0 $[w.id] Deschedule $[w.id]
+# + I Schedule $0 $[w.id] Deschedule -$[w.id]
+
+
+#############################################################################################
+
+
+#####
+# MyButtons
+###########
+# Style "MyButtons" NoTitle, !Handles, !Borders, Sticky, WindowListSkip, \
+#   CirculateSkip, StaysOnBottom, FixedPosition, FixedSize, !Iconifiable
+
+# DestroyModuleConfig MyButtons: *
+# *MyButtons: Geometry 50x420+0+0
+# *MyButtons: Colorset 2
+# *MyButtons: Rows 38
+# *MyButtons: Columns 1
+# *MyButtons: Frame 0
+# *MyButtons: Font "Shadow=3:xft:Sans:Bold:pixelsize=14:minspace=True:antialias=True"
+# *MyButtons: (1x2, Frame 0, Title(Center) "FVWM")
+# *MyButtons: (1x5, Frame 0, Icon icons/terminal.png, \
+#   Action(Mouse 1) "FvwmATerm", \
+#   Action(Mouse 3) "FvwmXTerm")
+# *MyButtons: (1x5, Frame 0, Icon 48x48/xmms.png, \
+#   Action(Mouse 1) "FvwmXmms")
+# *MyButtons: (1x5, Frame 0, Icon 48x48/vim.png, \
+#   Action(Mouse 1) "FvwmGvim")
+# *MyButtons: (1x5, Frame 0, Icon 48x48/gimp.png, \
+#   Action(Mouse 1) "FvwmGimp")
+# *MyButtons: (1x5, Frame 0, Icon icons/firefox.png, \
+#   Action(Mosue 1) "FvwmFireFox")
+# *MyButtons: (1x5, Frame 0, Icon 48x48/irc.png, \
+#   Action(Mouse 1) "FvwmIrssi")
+# *MyButtons: (1x5, Frame 0, Icon 48x48/tux.png )
+# *MyButtons: (1x1, Frame 0)
+
+
+
+#-----------------------------------------------------------------------------
+#  Desk Label (FvwmButtons)
+#-----------------------------------------------------------------------------
+# Style DeskLabel Sticky, NeverFocus, WindowListSkip, !Title, CirculateSkip, StaysOnBottom, !Handles, Borderwidth 4, UseDecor Alternate
+# DestroyModuleConfig DeskLabel: *
+# *DeskLabel: Geometry 128x37-0-0
+# *DeskLabel: Rows 1
+# *DeskLabel: Columns 1
+# *DeskLabel: Frame 1
+# *DeskLabel: Padding 0 0
+# *DeskLabel: Colorset 22
+# *DeskLabel: Font "xft:DIN\-Light:size=20"
+# *DeskLabel: (1x1, Id "DeskNum", Title "DESK ?")
+
+
+DestroyMenu MenuFvwmQuitVerify
+AddToMenu MenuFvwmQuitVerify "$[gt.Really Quit Fvwm?]" Title
++ "&Q. $[gt.Yes, Really Quit]" Quit
++ "&R. $[gt.Restart]"          Restart
++ "&N. $[gt.No, Don't Quit]"   Nop
+
+
+DestroyMenu MenuQuitSystem
+AddToMenu MenuQuitSystem "$[gt.Really Quit System?]" Title
++ "&H. $[gt.Hibernate]"                    Exec exec sudo pm-hibernate
++ "&S. $[gt.Suspend]"                      Exec exec sudo pm-suspend
++ "&R. $[gt.Reboot]"                       Exec exec sudo reboot
++ "&O. $[gt.Halt]"                         Exec exec sudo halt
++ "&N. $[gt.No, Don't Quit]"               Nop

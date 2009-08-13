@@ -1,0 +1,31 @@
+#####
+# FvwmPager
+###########
+DestroyModuleConfig FvwmPager: *
+
+Style "FvwmPager" !Title, !Handles, BorderWidth 1, Sticky, WindowListSkip, \
+       CirculateSkip, StaysOnBottom, FixedPosition, FixedSize, !Iconifiable
+# *FvwmPager: Geometry 150x480-0+0
+*FvwmPager: Geometry 400x70-0+19
+*FvwmPager: Colorset * 20
+*FvwmPager: HilightColorset * 21
+*FvwmPager: BalloonColorset * 22
+*FvwmPager: WindowColorsets 22 23
+*FvwmPager: Font "xft:snap-10"
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "xft:snap-10"
+*FvwmPager: BallonYOffset +2
+# *FvwmPager: Window3dBorders
+*FvwmPager: MiniIcons
+*FvwmPager: UseSkipList
+*FvwmPager: Rows 1
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: WindowBorderWidth 1
+# *FvwmPager: Font none
+# *FvwmPager: SmallFont none
+# *FvwmPager: MoveThreshold 0
+# *FvwmPager: SolidSeparators
+# *FvwmPager: DesktopScale 20
+# *FvwmPager: SolidSeparators
+# *FvwmPager: WindowLabelFormat ""
+# *FvwmPager: ShapeLabels

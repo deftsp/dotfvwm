@@ -1,0 +1,85 @@
+# ### FvwmButtons Configuration for 1280x800
+# Style "FvwmButtons" StaysOnTop,ClickToFocus
+# Style "FvwmButtons" !Title, !Borders, Sticky, WindowListSkip, CirculateSkip
+
+# Style "FvwmButtons" NoTitle, !Handles, !Borders, Sticky, WindowListSkip,  CirculateSkip, StaysOnBottom, FixedPosition, FixedSize, !Iconifiable
+
+# *FvwmButtons: (Swallow (Kill, UseOld) 'stalonetray' `Exec exec stalonetray`)
+
+# Style macDock  NoTitle, HandleWidth 0, Sticky, WindowLIstSkip, StaysOnBottom, CirculateSkipIcon, CirculateSkip,
+# DestroyModuleConfig macDock :*
+# *macDock: Geometry 25x22-0-0
+# *macDock: Frame 0
+# *MyBarre: (15x1, Swallow "heure" "Module FvwmButtons heure")
+# *macDock: (6x1,Frame 0,Icon fvwm.png, Action (Mouse 1) Menu MenuFvwmRoot window c+0 -105m)
+# *macDock: (25x22, Swallow "stalonetray" "Exec exec stalonetray")
+
+
+
+# *FvwmButtons: Geometry 520x100-1-28
+# *FvwmButtons: Back #222222
+# *FvwmButtons: (Frame 2 Padding 2 2 Container(Rows 2 Columns 5 Frame 1  Padding 10 0))
+# *FvwmButtons: (3x2 Frame 2 Swallow "FvwmIconMan" "Module FvwmIconMan")
+
+# *FvwmButtons: (1x2 Frame 2 Swallow(UseOld) "FvwmPager" "Module FvwmPager 0 0")
+# *FvwmButtons: (1x2 Frame 0 Container(Rows 2 Columns 2 Frame 0))
+# *FvwmButtons: (Frame 2 Swallow(UseOld,NoHints,Respawn) "xbiff" `Exec exec xbiff -bg bisque3`)
+# *FvwmButtons: (Frame 3 Swallow(UseOld,NoHints,Respawn) "xclock" `Exec exec xclock -bg bisque3 -fg black -hd black -hl black -padding 0 -update 1`)
+# *FvwmButtons: (2x1 Frame 2 Swallow(UseOld,NoHints,Respawn) "xload" `Exec exec xload -bg bisque3 -fg black -update 5 -nolabel`)
+# *FvwmButtons: (End)
+# *FvwmButtons: (End)
+
+
+# DestroyModuleConfig PanelButtons
+# *PanelButtons: Colorset 42
+# *PanelButtons: ActiveColorset 41
+# *PanelButtons: PressColorset 41
+# *PanelButtons: Geometry 1024x20+0+0
+# *PanelButtons: Columns 1024
+# *PanelButtons: Rows 20
+# *PanelButtons: Frame 0
+# *PanelButtons: Padding 0 0
+# *PanelButtons: Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+# *PanelButtons: (10x20)
+# *PanelButtons: (150x20, Title ':: valis', Panel(down, delay 100, steps 2) MenuButtons, "Module FvwmButtons -g -30000-30000 -transientpanel MenuButtons"  )
+# *PanelButtons: (704x20, Swallow "FvwmIconMan")
+# *PanelButtons: (150x20, Swallow (NoClose,UseOld) "TimeScript" )
+# *PanelButtons: (10x20)
+
+# DestroyModuleConfig MenuButtons
+# *MenuButtons: Colorset 42
+# *MenuButtons: Geometry 165x244-0-0
+# *MenuButtons: Columns 165
+# *MenuButtons: Rows 244
+# *MenuButtons: Font "Shadow=0 1 SE:xft:Swis721 Cn BT:pixelsize=12"
+# *MenuButtons: Frame 0
+# *MenuButtons: Padding 0 0
+# *MenuButtons: (165x10 Nop)
+# *MenuButtons: (5x224 Nop)
+# *MenuButtons: (80x32, Icon menu/bookfolder.png, Action (Mouse 1) MenuFunc 'Exec exec rox-filer -d $[fvwm_book_path]'   )
+# *MenuButtons: (80x32, Icon menu/home.png Action (Mouse 1) MenuFunc 'Exec exec rox-filer -d $[HOME]')
+# *MenuButtons: (80x32, Icon menu/moviefolder.png, Action (Mouse 1) MenuFunc 'Exec exec rox-filer -d $[fvwm_video_path]')
+# *MenuButtons: (80x32, Icon menu/mounts.png, Action (Mouse 1) MenuFunc 'Exec exec gksu gtkdiskfree' )
+# *MenuButtons: (80x32, Icon menu/musicfolder.png, Action (Mouse 1) MenuFunc 'Exec exec rox-filer -d $[fvwm_audio_path]')
+# *MenuButtons: (80x32, Icon menu/network.png, Action (Mouse 1) MenuFunc 'Exec exec gnome-nettool')
+# *MenuButtons: (80x32, Icon menu/picfolder.png, Action (Mouse 1) MenuFunc 'Exec exec rox-filer -d $[fvwm_image_path]')
+# *MenuButtons: (80x32, Icon menu/printer.png, Action (Mouse 1) MenuFunc 'Exec exec gnome-cups-manager')
+# *MenuButtons: (80x48, Icon menu/restart.png, Action (Mouse 1) MenuFunc 'Restart')
+# *MenuButtons: (80x32, Icon menu/settings.png, Action (Mouse 1) MenuFunc 'Exec exec $[editor] $[fvwm_config_dir]/*')
+# *MenuButtons: (80x32, Icon menu/terminal.png, Action (Mouse 1) MenuFunc 'Exec exec aterm')
+# *MenuButtons: (80x48, Icon menu/exit.png, Action (Mouse 1) MenuFunc 'Quit')
+# *MenuButtons: (80x32, Icon menu/default.png, Action (Mouse 1) MenuFunc 'Exec exec grun')
+# *MenuButtons: (160x10 Nop)
+
+
+# ButtonStyle 2 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# ButtonStyle 6 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# ButtonStyle 4 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# ButtonStyle 8 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+# ButtonStyle 1 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+
+# ButtonStyle 2 active Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+# ButtonStyle 4 active Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+# ButtonStyle 6 active Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+# ButtonStyle 8 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+# ButtonStyle 1 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
