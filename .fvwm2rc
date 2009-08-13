@@ -14,13 +14,13 @@
 #####
 # Set Environment variables
 ###########
-SetEnv fvwm_img        $[FVWM_USERDIR]/images
-SetEnv fvwm_decor      $[fvwm_img]/decor
-SetEnv fvwm_gant       $[fvwm_img]/icons/gnant
-SetEnv fvwm_ryo        $[fvwm_img]/icons/ryo
-SetEnv fvwm_fav        $[fvwm_img]/icons/fav
-SetEnv fvwm_scripts    $[FVWM_USERDIR]/scripts
-SetEnv fvwm_wallpapers $[FVWM_USERDIR]/wallpaper
+Test (!EnvIsSet fvwm_img)          SetEnv fvwm_img        $[FVWM_USERDIR]/images
+Test (!EnvIsSet fvwm_decor)        SetEnv fvwm_decor      $[fvwm_img]/decor
+Test (!EnvIsSet fvwm_gant)         SetEnv fvwm_gant       $[fvwm_img]/icons/gnant
+Test (!EnvIsSet fvwm_ryo)          SetEnv fvwm_ryo        $[fvwm_img]/icons/ryo
+Test (!EnvIsSet fvwm_fav)          SetEnv fvwm_fav        $[fvwm_img]/icons/fav
+Test (!EnvIsSet fvwm_scripts)      SetEnv fvwm_scripts    $[FVWM_USERDIR]/scripts
+Test (!EnvIsSet fvwm_wallpapers)   SetEnv fvwm_wallpapers $[FVWM_USERDIR]/wallpaper
 
 ModulePath $[HOME]/.fvwm/modules:+
 
