@@ -344,3 +344,17 @@ Style "*"	BorderWidth 2
 # # large plus symbol means maximize
 # ButtonStyle 5  13 60x20@0 60x40@0 80x40@1 80x60@0 60x60@0 60x80@0
 # 40x80@0 40x60@1 20x60@0 20x40@1 40x40@1 40x20@1 60x20@1
+
+
+DestroyFunc ToggleTitle
+AddToFunc ToggleTitle
+    + I State 1 toggle
+    + I Current (State 1) WindowStyle Title
+    + I TestRc (NoMatch) WindowStyle !Title
+
+DestroyFunc ToggleDecor
+AddToFunc ToggleDecor
+    + I State 1 toggle
+    + I Current (State 1) WindowStyle !Borders, !Title
+    + I TestRc (NoMatch) WindowStyle Borders, Title
+
