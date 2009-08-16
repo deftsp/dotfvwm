@@ -1,5 +1,38 @@
 #key bindings {{{1
+
+# Handle some Mouse bindings now...
+# Recall that mouse formats look like this:
 #
+# +------------+
+# | ||  ||  || |
+# |	           |
+# +------------+
+#   1   3   2
+
+# Binding Functions
+#
+# "I" stands for Immediate
+# "M" stands for Motion
+# "C" stands for Click
+# "H" stands for Hold
+# "D" stands for Double Click
+
+# ---------------------------------------------------------------------------
+# Contexts:
+#     R = Root Window                 rrrrrrrrrrrrrrrrrrrrrr
+#     W = Application Window          rIrrrrFSSSSSSSSSFrrrrr
+#     F = Frame Corners               rrrrrrS13TTTT642Srrrrr
+#     S = Frame Sides                 rIrrrrSwwwwwwwwwSrrrrr
+#     T = Title Bar                   rrrrrrSwwwwwwwwwSrrrrr
+#     I = Icon                        rIrrrrFSSSSSSSSSFrrrrr
+#                                     rrrrrrrrrrrrrrrrrrrrrr
+# Numbers are buttons: 1 3 5 7 9   0 8 6 4 2
+#
+# Modifiers: (A)ny, (C)ontrol, (S)hift, (M)eta, (N)othing
+# ---------------------------------------------------------------------------
+
+
+
 #definitions hint:
 #Key / Mouse Button Context Modifiers Function
 #Defines a mouse binding, or removes the binding if Function is
