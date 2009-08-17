@@ -33,7 +33,7 @@ Style * Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso8859-1"
 # Style "XMMS_Playlist" NoTitle
 # Style "XMMS_Equalizer" NoTitle
 
-
+Style tint2 !Title, !Borders, Sticky
 
 
 #### decoration
