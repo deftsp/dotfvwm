@@ -58,7 +58,7 @@
 #           modifier 'L' is ignored (see  IgnoreModifiers)
 
 
-Mouse 1 1 A close
+Mouse 1 1 A DestroyOnHold
 Mouse 3 1 A Menu MenuFvwmWindowOps
 Mouse 3 W 4 Menu MenuFvwmWindowOps
 Mouse 1 3 A Max
@@ -87,3 +87,21 @@ Mouse 5 FSTW   S Exec exec transset-df -p --inc 0.1
 # workspace scrolling
 Mouse 4 R A Scroll 100 100
 Mouse 5 R A Scroll -100 -100
+
+#####
+# Name:     DestroyOnHold
+# Bound:    Titlebar Button 2 (X)
+# Purpose:  When clicked, Raise the window Immediately.
+#           If the button is pressed and released, Close the Window. If it is pressed
+#           and held, Destroy it, and issue a Beep to confirm.
+#
+#           There is a 100ms delay before issuing `Close` so I have a chance to see the
+#           animation when the button changes from ActiveDown to ActiveUp :).
+#
+#################
+DestroyFunc DestroyOnHold
+AddToFunc DestroyOnHold I Raise
++ C Schedule 100 Close
++ H Destroy
++ H Beep
+
