@@ -2,7 +2,8 @@
 # Mouse 1 A       4       Menu MenuFvwmRoot Root +0 +20p
 
 DestroyMenu MenuFvwmRoot
-AddToMenu MenuFvwmRoot  "$[gt.Root Menu]"             Title
+AddToMenu "MenuFvwmRoot@$[fvwm_img]/menu/menu_side_black.png@"
++         *$[fvwm_img]/menu/menu_up.png* Title
 +                       "&1. XTerm"                   Exec exec xterm
 +                       "&2. URxvt"                   Exec exec urxvt
 +                       "&H. Fvwm Help"               Popup MenuFvwmHelp
@@ -11,7 +12,7 @@ AddToMenu MenuFvwmRoot  "$[gt.Root Menu]"             Title
 +                       "&R. Restart"                 Restart
 +                       "&X. Exit Fvwm"               Popup MenuFvwmQuitVerify
 +                       "&Q. Quit System"             Popup MenuQuitSystem
-
++         *$[fvwm_img]/menu/menu_down.png* Title
 
 
 DestroyFunc	FvwmViewManPage

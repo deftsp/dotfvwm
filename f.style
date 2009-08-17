@@ -57,23 +57,41 @@ Style HiddenConsole WindowShadeSteps 100, ResizeHintOverride
 # Style "*" MWMBorder
 # Style "*" NoIcon
 #### menu
-MenuStyle * Hilight3DThin, PopupOffset +0 100, PopupDelay 1400
-# MenuStyle * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
-MenuStyle * Font "Shadow=0 1 SE:xft:华文黑体:bold:pixelsize=10"
-MenuStyle * MenuColorset 0, HilightBack, ActiveColorset 1
-MenuStyle * BorderWidth 0, TitleUnderlines0, SeparatorsLong, Animation
-MenuStyle * TrianglesSolid
-MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%10.3>%2|"
-MenuStyle * AutomaticHotKeys
-MenuStyle * TitleColorset 2
-MenuStyle * TitleFont "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=14"
-# MenuStyle * FlatSeparators
 
+MenuStyle * MenuColorset 60, ActiveColorset 61
+MenuStyle *	BorderWidth 0, HilightBack, ActiveFore
+MenuStyle *	Hilight3DThickness 0, !Animation
+MenuStyle *	Font "StringEncoding=UTF-8:xft:iYaHei:size=9:encoding=iso10646-1"
+MenuStyle *	PopupDelayed, PopupDelay 300, PopdownImmediately, PopupOffset 1 400
+MenuStyle *	TitleUnderlines0, TrianglesSolid
+MenuStyle *	ItemFormat "%s%|%5.i%5.5l%5.5r%.5>%|%i"
+MenuStyle *	VerticalItemSpacing 0, VerticalTitleSpacing 0
+MenuStyle * 	RoundedCorners, SlightlyRoundedCorners
+
+
+
+# MenuStyle * MenuColorset 60, ActiveColorset 61
+# MenuStyle * Hilight3DThin 0, HilightBack, ActiveFore
+# # MenuStyle * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+# MenuStyle * Font "Shadow=0 1 SE:xft:华文黑体:bold:pixelsize=10"
+# MenuStyle * PopupOffset +0 100, PopupDelay 1400
+# MenuStyle * BorderWidth 0, TitleUnderlines0, SeparatorsLong, Animation
+# MenuStyle * TrianglesSolid, VerticalItemSpacing 0, VerticalTitleSpacing 0
+# # MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%10.3>%2|"
+# MenuStyle *	ItemFormat "%s%|%5.i%5.5l%5.5r%.5>%|%i"
+# MenuStyle * AutomaticHotKeys
+# MenuStyle * TitleColorset 2
+# MenuStyle * TitleFont "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=14"
+# MenuStyle * RoundedCorners, SlightlyRoundedCorners
+# MenuStyle * FlatSeparators
 # MenuStyle * PopupOffset 0 100
 # MenuStyle * MenuFace DGradient 1000 2 white 600 grey 300 darkgrey
 # MenuStyle * Foreground black, Background steelblue
 # MenuStyle * Font -*-kates-*-*-*-*-14-*-*-*-*-*-*-*
 #MenuStyle * HilightBackOff, Hilight3DOff
+
+
+
 
 #### fvwm
 # Style FvwmPager    !Title,  Sticky, WindowListSkip, CirculateSkipIcon, CirculateSkip   , RoundedCorners

@@ -9,6 +9,10 @@ Colorset 0 fg #ffffff, fgsh #000000, bg #000000, hi #ffffff, sh #ffffff, Translu
 Colorset 1 fg #e0e0e0, fgsh #000000, bg #111111, hi #000000, sh #000000, Translucent #666666 80
 Colorset 2 fg #ffffff, bg #000000
 
+
+Colorset 60 Translucent #EAE9E9 50
+Colorset 61 fg #fff, bg #2e2e2e, sh #dbe4e7, hi #dbe4e7
+
 #### BorderStyle
 Colorset 10 fg #ffffff, bg #afafaf
 Colorset 11 fg #ffffff, bg #696969

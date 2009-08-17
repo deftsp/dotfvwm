@@ -1,0 +1,50 @@
+background no
+override_utf8_locale yes
+font iYaHei:size=9
+xftfont iYaHei:size=9
+use_xft yes
+xftalpha 0.1
+
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type override #desktop,normal,override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+minimum_size 160 5
+maximum_width 160
+
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+#gap_x 0
+gap_y 100
+
+no_buffers yes
+cpu_avg_samples 2
+uppercase no
+use_spacer none
+out_to_console no
+
+default_color white
+default_shade_color black
+default_outline_color grey90
+
+TEXT
+${font openlogos:size=38}${color #1994d1}Q ${voffset -25}${font}${color slate grey}UpTime:${alignr}${color}${uptime}
+                  ${color slate grey}Cpu:${alignr}${color}${cpu}% ${acpitemp}C
+${voffset -3}${alignr}${cpugraph 10,110 ffffff}
+${color slate grey}Mem : ${color}${memperc}%${alignr}${color}${mem}
+${color slate grey}Swap: ${color}${swapperc}%${alignr}${swap}
+${color #ff8b5d}${top name 1}${alignr}${color}${top cpu 1}/cpu
+${color #ff8b5d}${top_mem name 1}${alignr}${color}${top_mem mem 1}/mem
+${voffset -30}${color #ff8b5d}${alignc}${top pid 1}
+${color #ff8b5d}${alignc}${top_mem pid 1}
+${color slate grey}Up: ${color}${upspeed eth0}k/s${alignr}${color slate grey}Down: ${color}${downspeed eth0}k/s
