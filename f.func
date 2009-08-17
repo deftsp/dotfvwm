@@ -95,6 +95,7 @@ AddToFunc  StardictToggleScan
 
 # remember the focus window
 DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: deiconify DeThumbnail
 *FvwmEvent: Cmd Function
 *FvwmEvent: new_page CurrentPageFocusFunc
 *FvwmEvent: new_desk CurrentPageFocusFunc
@@ -128,3 +129,44 @@ AddToFunc MarkWindowAsActiveFunc
 # AddToFunc   StartAppMaximised
 # + I ThisWindow ("name of window|another window", \
 # !Maximized, !Transient) Maximize
+
+
+#####
+# Name:     Thumbnail
+# Purpose:  Iconify a window with a reduced screenshot of the application
+#           Window, looks really cool.
+#
+#           Uses FvwmEvent to remove the Icon when deiconified.
+#
+#           Thumbnailing example:
+#
+# http://www.fvwm.org/screenshots/desktops/Tavis_Ormandy-desk-1152x864/screenshot.jpg
+#
+# If you have a slow machine, try changing -scale to -sample, the quality of the Icons
+# won't be as good, but they are generated much faster. for a different effect, try using
+# -scale $(($[w.width]/5))
+#
+# You can also remove the command that uses composite to try to superimpose a MiniIcon
+# onto the icon, if you dont like this.
+##################
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
++ I Raise
++ I ThisWindow (!Iconic) SetEnv Icon-$[w.id] $[w.iconfile]
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "xwd -silent -id $[w.id] | convert -scale 128 -frame 1x1 \
+    -mattecolor black -quality 0 xwd:- png:$[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    && echo WindowStyle IconOverride, Icon $[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    || echo Nop"
++ I TestRc (Match) Test (f $[w.miniiconfile], f $[FVWM_USERDIR]/icon.tmp.$[w.id].png) PipeRead \
+    "composite -geometry +2+4 $[w.miniiconfile] $[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    $[FVWM_USERDIR]/icon.tmp.$[w.id].png; echo Nop"
++ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
++ I PipeRead "echo Test \\(i \\$\\[Icon-$[w.id]\\]\\) WindowStyle Icon \\$\\[Icon-$[w.id]\\]"
++ I TestRc (NoMatch) WindowStyle NoIconOverride, Icon
++ I Exec rm -f $[FVWM_USERDIR]/icon.tmp.$[w.id].png
++ I All (Iconic, CurrentPage) PlaceAgain icon
++ I UnsetEnv Icon-$[w.id]

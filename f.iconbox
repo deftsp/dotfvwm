@@ -1,10 +1,9 @@
-
 #### iconbox
-# Style * DecorateTransient, IconBox 256 0 758 100, IconGrid 3 3, IconFill left top, NoIconTitle, CenterPlacement
-# Style * IconBox 700x84+0-0, IconFill Bottom Right, NoIconTitle, DecorateTransient
+# Style * DecorateTransient, IconGrid 3 3, IconFill left top, CenterPlacement
+Style * IconBox $[vp.width]x$[vp.height]+8+30, IconFill t l, IconBackgroundPadding 0, IconBackgroundRelief 0, NoIcon, NoIconTitle
 # Style * IconTitle, IconTitleColorset 30, HilightIconTitleColorset 31, IconTitleRelief 0
 # Style * IconFont "Shadow=0 1 SE:xft:Swis721 Cn BT:pixelsize=12", IndexedIconName, IconBackgroundPadding 0
-Style     *  NoIcon
+# Style     *  NoIcon
 # mouse bindings
 # *FvwmIconBox: Mouse       1       Click           RaiseLower
 # *FvwmIconBox: Mouse       1       DoubleClick     Iconify

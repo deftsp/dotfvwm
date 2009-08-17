@@ -84,7 +84,6 @@ Read f.iconbox
 Read f.stroke
 Read f.menu
 Read f.auto-hidden
-
 # Read f.dock
 # Read f.buttons
 # Read f.conky
