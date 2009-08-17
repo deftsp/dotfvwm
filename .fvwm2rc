@@ -64,6 +64,8 @@ ClickTime 750
 # MoveThreshold 3
 Style *          ClickToFocus
 
+HideGeometryWindow Always
+
 # ignores the 'Num Lock' modifier
 IgnoreModifiers L25
 # Fvwm | Mwm | Win
