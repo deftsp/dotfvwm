@@ -61,11 +61,13 @@
 Mouse 1 1 A DestroyOnHold
 Mouse 3 1 A Menu MenuFvwmWindowOps
 Mouse 3 W 4 Menu MenuFvwmWindowOps
-Mouse 1 3 A Max
+Mouse 1 3 A MaximizeFunc
 Mouse 1 5 A Iconify
 Mouse 3 5 A Thumbnail
 
-Mouse 1 FSTW   M FuncFvwmRaiseLowerX Move
+Mouse 1 FSW    M FuncFvwmRaiseLowerX Move
+Mouse 1 T	   A MaximizeTitleBarFunc
+Mouse 3 T      A TitleRightClick
 
 Mouse 4 FSTW   S Exec exec transset-df --min 0.1 -p --dec 0.2
 Mouse 5 FSTW   S Exec exec transset-df -p --inc 0.1
@@ -106,3 +108,36 @@ AddToFunc DestroyOnHold I Raise
 + H Destroy
 + H Beep
 
+
+DestroyFunc MaximizeFunc
+AddToFunc MaximizeFunc
++ C Maximize
++ D Maximize ewmhiwa True
++ M Nop
+
+DestroyFunc MaximizeTitleBarFunc
+AddToFunc MaximizeTitleBarFunc
++ I Raise
++ D Maximize ewmhiwa
++ M Move
+
+
+DestroyFunc TitleRightClick
+AddToFunc TitleRightClick
++ C Menu menu_WindowOps
++ M ResizeFunc
+
+AddToFunc ResizeFunc
++ I EWMHActivateWindowFunc
++ I Resize
+
+DestroyFunc FvwmSend&Go
+AddToFunc   FvwmSend&Go
++ I MoveToPage wrapx  1p 1
++ I GoToPage wrapx  1p 1
+
+DestroyFunc FuncMoveCenter
+AddToFunc FuncMoveCenter
++ I AnimatedMove -50 -50
++ I WarpToWindow 50 50
++ I AnimatedMove m+0 m+0 Warp

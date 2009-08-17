@@ -27,7 +27,7 @@ Style * Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso8859-1"
 # Style prokyon3 EWMHMiniIconOverride,MiniIcon 24x24/apps/gnome-grecord.png
 # Style k3b	EWMHMiniIconOverride,MiniIcon 24x24/apps/disks.png
 # Style opera	EWMHMiniIconOverride,MiniIcon 24x24/opera.png
-# Style conky	WindowListSkip, NoTitle
+Style conky !Title, !Borders, Sticky
 # Style HiddenConsole Sticky, WindowListSkip, Notitle, StaysOnTop, NoHandles, CirculateSkip
 # Style "XMMS_Player" NoTitle
 # Style "XMMS_Playlist" NoTitle

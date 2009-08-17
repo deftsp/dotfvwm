@@ -194,3 +194,4 @@ Key Escape A M SendToModule FvwmProxy ShowToggle
 #                    ScanForWindow West North (CurrentPage)
 
 # *FvwmProxy: Action ModifierRelease M SendToModule FvwmProxy Hide
+

@@ -53,7 +53,7 @@ DestroyModuleConfig CpuLoad:*
 Style MyBarre  NoTitle, HandleWidth 0, Sticky, WindowLIstSkip, StaysOnBottom, CirculateSkipIcon, CirculateSkip, !Iconifiable
 
 DestroyModuleConfig MyBarre :*
-*MyBarre: Geometry 1280x17+0+2
+*MyBarre: Geometry 1280x17+0+0
 *MyBarre: Columns 200
 *MyBarre: Rows 1
 *MyBarre: Colorset 3

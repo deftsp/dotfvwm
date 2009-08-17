@@ -3,16 +3,23 @@
 
 DestroyMenu MenuFvwmRoot
 AddToMenu "MenuFvwmRoot@$[fvwm_img]/menu/menu_side_black.png@"
-+         *$[fvwm_img]/menu/menu_up.png* Title
-+                       "&1. XTerm"                   Exec exec xterm
-+                       "&2. URxvt"                   Exec exec urxvt
-+                       "&H. Fvwm Help"               Popup MenuFvwmHelp
-+                       "&C. Fvwm Console"            Module FvwmConsole
-+                       "&F. Refresh"                 Refresh
-+                       "&R. Restart"                 Restart
-+                       "&X. Exit Fvwm"               Popup MenuFvwmQuitVerify
-+                       "&Q. Quit System"             Popup MenuQuitSystem
++         *$[fvwm_img]/menu/menu_up.png*       Title
++         "&Terminal"%terminal.png%		       Exec exec urxvt
++         ""                                   Nop
++         "&Accessories"%accessories.png%	   Popup Accessories
++         "&Games"%games.png%			       Popup Games
++         "&Media"%media.png%			       Popup Media
++         "Gra&phics"%graphics.png%	           Popup Graphics
++         "&Internet"%internet.png%		       Popup Internet
++         "&Office"%office.png%			       Popup Office
++         "&System Tools"%system.png%		   Popup System
++         ""					               Nop
++         "&Preferences"%preferences.png%	   Popup Preferences
++         "&Restart Fvwm"%restart.png%		   Restart
++         "&Quit"%quit.png%			           Popup MenuQuitSystem
+# +         "&H. Fvwm Help"               Popup MenuFvwmHelp
 +         *$[fvwm_img]/menu/menu_down.png* Title
+
 
 
 DestroyFunc	FvwmViewManPage
@@ -245,17 +252,207 @@ AddToMenu	MenuFvwmMoveToDesk
 # *DeskLabel: (1x1, Id "DeskNum", Title "DESK ?")
 
 
-DestroyMenu MenuFvwmQuitVerify
-AddToMenu MenuFvwmQuitVerify "$[gt.Really Quit Fvwm?]" Title
-+ "&Q. $[gt.Yes, Really Quit]" Quit
-+ "&R. $[gt.Restart]"          Restart
-+ "&N. $[gt.No, Don't Quit]"   Nop
-
 
 DestroyMenu MenuQuitSystem
 AddToMenu MenuQuitSystem "$[gt.Really Quit System?]" Title
-+ "&H. $[gt.Hibernate]"                    Exec exec sudo pm-hibernate
-+ "&S. $[gt.Suspend]"                      Exec exec sudo pm-suspend
-+ "&R. $[gt.Reboot]"                       Exec exec sudo reboot
-+ "&O. $[gt.Halt]"                         Exec exec sudo halt
-+ "&N. $[gt.No, Don't Quit]"               Nop
++ "&Quit Fvwm"                Quit
++ "&Hibernate"                Exec exec sudo pm-hibernate
++ "&Suspend"                 Exec exec sudo pm-suspend
++ "&Reboot"                  Exec exec sudo reboot
++ "Shut&down"                     Exec exec sudo halt
++ "&Nop"                      Nop
+
+DestroyMenu Accessories
+AddToMenu Accessories Accessories
++ "Calculator"%calc.png%		Exec gcalctool
++ "Gvim"%gvim.png%			Exec gvim
++ "Leafpad"%leafpad.png%		Exec leafpad
++ "Root Terminal"%terminal.png%		Exec gksu roxterm
++ "Terminal"%terminal.png%		Exec roxterm
++ "Xarchiver"%xarchiver.png%		Exec xarchiver
+
+DestroyMenu Games
+AddToMenu Games Games
++ "Xmoto"%xmoto.png%			Exec xmoto
++ "Xopenliero"%liero.png%		Exec xopenlireo
+
+DestroyMenu Graphics
+AddToMenu Graphics Graphics
++ "Comix"%comix.png%			Exec comix
++ "Gimp 2.6"%gimp.png%			Exec gimp
++ "Gqview"%gqview.png%			Exec gqview
++ "Inkscape"%inkscape.png%		Exec inkscape
++ "Pencil"%pencil.png%			Exec pencil
+
+DestroyMenu Internet
+AddToMenu Internet Internet
++ "Epiphany"%epiphany.png%		Exec epiphany
++ "Firefox"%firefox.png%		Exec firefox
++ "Opera"%opera.png%			Exec opera
++ "cGmail"%mail.png%			Exec cgmail
+
+DestroyMenu Office
+AddToMenu Office Office
++ "AbiWord"%abiword.png%		Exec abiword
++ "Gnumeric"%gnumeric.png%		Exec gnumeric
++ "Xchm"%xchm.png%			Exec xchm
++ "Evince"%xpdf.png%			Exec evince
+
+DestroyMenu Media
+AddToMenu Media Media
++ "Audacious"%audacious.png%		Exec audacious
++ "Gmlive"%gmlive.png%			Exec gmlive
++ "Mplayer"%mplayer.png%		Exec gmplayer
++ "Volume-control"%sound.png%		Exec gnome-volume-control
+
+DestroyMenu System
+AddToMenu System "System Tools"
++ "Gconf-editor"%config.png%		Exec gconf-editor
++ "Gparted"%gparted.png%		Exec gparted
++ "Nautilus"%natuilus.png%		Exec nautilus
++ "Nvidia-settings"%nvidia.png%		Exec nvidia-settings
++ "Pcmanfm"%pcmanfm.png%		Exec pcmanfm
++ "Xkill"%kill.png%			Exec xkill
+
+DestroyMenu Preferences
+AddToMenu Preferences Preferences
++  MissingSubmenuFunction       ConfigBrowser
++ "Servers"%server.png%			Popup MenuServices
++ "Edit Configs"%doc.png%		Popup MenuEditConfigs
++ "Wallpaper"%wallpaper.png% 		Popup $[walldir] Menu 100 0
++ "Gamma"%theme.png%			Popup MenuGamma
++ "Screenshot"%screenshot.png%       	Popup MenuScreenshot
++ ""					Nop
++ "FvwmConsole"%terminal.png% 		Module FvwmConsole
++ "GTK+ 2.0 theme manager"%theme.png%	Exec gtk-chtheme
++ "Qt-config"%preferences.png% 		Exec qtconfig
+
+AddToMenu MenuServices
++ Mldonkey				Popup MenuMldonkey
++ Vsftpd				Popup MenuVsftpd
++ Sshd					Popup MenuSshd
++ Httpd					Popup MenuHttpd
++ Tor/Privoxy				Popup MenuTor
++ MySQL					Popup MenuMySQL
++ ""					Nop
++ Conky					Popup MenuConky
++ Tint					Popup MenuTint
++ Xcompmgr				Popup MenuXcompmgr
+
+AddToMenu MenuMldonkey
++ start				Exec xterm -e su -c "/etc/init.d/mldonkey-server force-start"
++ stop 				Exec xterm -e su -c "/etc/init.d/mldonkey-server stop"
+AddToMenu MenuVsftpd
++ start	  			Exec xterm -e su -c "/etc/init.d/vsftpd start"
++ stop 				Exec xterm -e su -c "/etc/init.d/vsftpd stop"
+AddToMenu MenuHttpd
++ start				Exec xterm -e su -c "/etc/init.d/apache2 start"
++ stop 				Exec xterm -e su -c "/etc/init.d/apache2 stop"
+AddToMenu MenuSshd
++ start				Exec xterm -e su -c "/etc/init.d/ssh start"
++ stop 				Exec xterm -e su -c "/etc/init.d/ssh stop"
+AddToMenu MenuTor
++ start				Exec xterm -e su -c "/etc/init.d/tor start && /etc/init.d/privoxy start"
++ stop 				Exec xterm -e su -c "/etc/init.d/privoxy stop && /etc/init.d/tor stop"
+AddToMenu MenuMySQL
++ start				Exec xterm -e su -c "/etc/init.d/mysql start && /etc/init.d/mysql-ndb start && /etc/init.d/mysql-ndb-mgm start"
++ stop				Exec xterm -e su -c "/etc/init.d/mysql stop && /etc/init.d/mysql-ndb stop && /etc/init.d/mysql-ndb-mgm stop"
+AddToMenu MenuConky
++ start		   		Exec conky -c $[FVWM_USERDIR]/misc/conkyrc
++ stop   			Exec killall conky
+AddToMenu MenuTint
++ start		   		Exec tint2 -c $[FVWM_USERDIR]/misc/tintrc_black
++ stop   			Exec killall tint2
+AddToMenu MenuXcompmgr
++ start				Exec xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4
++ stop   			Exec killall xcompmgr
+
+AddToMenu MenuEditConfigs
++ "fvwm config"			Exec leafpad $FVWM_USERDIR/config
++ "conkyrc"			Exec leafpad $[FVWM_USERDIR]/misc/conkyrc
++ "tintrc"			Exec leafpad $[FVWM_USERDIR]/misc/tintrc_black
++ ""				Nop
++ ".startx-errors"		Exec leafpad $HOME/.startx-errors
++ "xorg.conf"			Exec gksu leafpad /etc/X11/xorg.conf
+
+AddToMenu MenuGamma
++ "Default Gamma"		Exec xgamma -gamma 1
++ "Gamma 2.2"			Exec xgamma -gamma 2.2
+
+AddToMenu MenuScreenshot
++ "Screenshot"		    	Exec scrot -q 100 screen-%F_%H%M%S.jpg
++ "Screenshot (5s delay)"	Exec sleep 5s && scrot -q 100 screen-%F_%H%M%S.jpg
++ "Screenshot frame"		Exec scrot -b -s -q 100 screen-%F_%H%M%S.jpg
+
+
+DestroyFunc ConfigBrowser
+AddToFunc ConfigBrowser
++ I DestroyMenu WallpaperBrowser
++ I AddToMenu WallpaperBrowser
++ I PipeRead 'test ! -d "$0/.thumbs" && mkdir "$0/.thumbs"; \
+    for i in "$0/"*; do \
+        test -f "$0/.thumbs/${i##*/}" \
+            -a "${i}" -ot "$0/.thumbs/${i##*/}" || { \
+                convert -quality 0 -scale 48 "${i}" "png:$0/.thumbs/${i##*/}" 2>/dev/null \
+                    || continue; \
+            }; \
+    done; \
+    fvwm-menu-directory --icon-title folder.png --icon-file __PIXMAP__ \
+    --icon-dir folder.png --dir $0 --exec-file "^habak -ms" \
+    --exec-t="^eog *" | sed -e "s#FuncFvwmMenuDirectory#WallpaperBrowser#g" \
+    -e "s#__PIXMAP__\\(.*\\)\\"\\(.*/\\)\\(.*\\)\\"#\\2.thumbs/\\3\\1\\2\\3#g"
+
+
+
+
+DestroyFunc WindowOpsFunc
+AddToFunc WindowOpsFunc
++ I DestroyMenu recreate menu_WindowOps
++ I AddToMenu menu_WindowOps $[w.class] Title
++ I + Send%go-next.png%		MoveToPage wrapx  1p 1
++ I + "Send&Go"%go-last.png%		Function FvwmSend&Go
++ I ThisWindow (!Iconic) + ""			Nop
++ I ThisWindow (!Iconic, !Maximized, Maximizable) + "$[gt.Maximize]"%maximize.png% Pick Maximize
++ I TestRc (!Match) ThisWindow (!Iconic, Maximizable) + "$[gt.Restore Maximize]"%maximize.png% Pick Maximize
++ I TestRc (Error) + "$[gt.Maximize]"%maximize.png% Pick Maximize
++ I + Iconify%iconify.png%		Iconify
++ I ThisWindow (!Iconic, Shaded) + "$[gt.Unshade]"%shade.png% Pick WindowShade N
++ I TestRc (!Match) ThisWindow (!Iconic) + "$[gt.Shade]"%shade.png% Pick WindowShade N
++ I TestRc (Error) + "$[gt.Shade]"%shade.png% Pick WindowShade N
++ I ThisWindow (!Iconic, !Sticky) + "$[gt.Stick]"%stick.png% Pick Stick
++ I TestRc (!Match) ThisWindow (!Iconic) + "$[gt.UnStick]"%stick.png% Pick Stick
++ I TestRc (Error) + "$[gt.Stick]"%stick.png% Pick Stick
++ I ThisWindow (!Iconic, Layer 6) + "$[gt.Default Layer]" Pick Layer 0 4
++ I TestRc (!Match) ThisWindow (!Iconic) + "$[gt.Always on Top]" Pick Layer 0 6
++ I TestRc (Error) + "$[gt.Always on Top]" Pick Layer 0 6
++ I ThisWindow (!Iconic) + ""			Nop
++ I ThisWindow (!Iconic) + "$[gt.Move]"%move.png%		MoveFunc
++ I ThisWindow (!Iconic) + "$[gt.Resize]"%resize.png%		ResizeFunc
++ I ThisWindow (!Iconic) + ""			Nop
++ I ThisWindow (!Iconic) + "Advanced..."		Popup menu_WindowOpsAdv
++ I ThisWindow (!Iconic) + ""		Nop
++ I + "$[gt.Close Window]"%destroy.png% Pick Close
+
+DestroyFunc WindowOpsFuncAdv
+AddToFunc WindowOpsFuncAdv
++ I DestroyMenu recreate menu_WindowOpsAdv
++ I AddToMenu menu_WindowOpsAdv
++ I ThisWindow (State 14) + "$[gt.Title]" WindowStyle Title
++ I TestRc (NoMatch) + "$[gt.NoTitle]" WindowStyle !Title
++ I State 14
++ I ThisWindow (State 15) + "$[gt.Borders]" WindowStyle Borders
++ I TestRc (NoMatch) + "$[gt.NoBorders]" WindowStyle !Borders
++ I State 15
++ I ThisWindow (FixedPosition) + "$[gt.UnBlock]"  WindowStyle VariablePosition, VariableSize
++ I TestRc (!Match) + "$[gt.Block]" WindowStyle FixedPosition, FixedSize
++ I + "Identify"%ident.png%		Module FvwmIdent
++ I + "$[gt.Destroy]"%kill.png% Pick Destroy
+
+
+DestroyMenu menu_WindowOps
+AddToMenu menu_WindowOps
++ DynamicPopupAction Function WindowOpsFunc
+
+DestroyMenu menu_WindowOpsAdv
+AddToMenu menu_WindowOpsAdv
++ DynamicPopupAction Function WindowOpsFuncAdv

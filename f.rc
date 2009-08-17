@@ -10,6 +10,7 @@ AddToFunc InitFunction
 # + I Module FvwmBanner
 # + I Exec exec xscreensaver -no-splash
 + I Exec exec fcitx
++ I Exec habak -ms $[fvwm_wallpapers]
 # + I Exec exec ivman-launch --exit-with-session xinit &
 # + I Exec exec wicd-client
 
@@ -27,6 +28,7 @@ AddToFunc StartFunction
 + I Module FvwmPerl
 + I Module FvwmCommandS
 + I Module FvwmButtons MyBarre
++ I Exec sleep 3 && conky -c $[FVWM_USERDIR]/misc/conkyrc
 # + I Test (Init) Test (x xterm) StartHiddenConsole
 # + I Module FvwmButtons MyDock
 # + I Module FvwmButtons ConkyInfo
@@ -52,10 +54,17 @@ AddToFunc StartFunction
 
 DestroyFunc ExitFunction
 AddToFunc ExitFunction
-+ I Piperead 'killall conky'
+# + I Piperead 'killall conky'
++ I Exec killall conky
++ I Exec killall tint2
++ I Exec killall stalonetray
+# + I Exec killall trayer
++ I Exec rm $[FVWM_USERDIR]/images/tmp/icon.tmp*
 # + I All (xdaliclock) Close
 # + I All (xscreensaver) Close
 # + I All (xsim) Close
 + I Exec exec sync
 # + I test (!torestart) exec exec killall -9 xcompmgr
 # + I test (!torestart) exec exec 3ddesk --stop
+
+

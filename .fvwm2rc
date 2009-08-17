@@ -27,7 +27,7 @@ ModulePath $[HOME]/.fvwm/modules:+
 #####
 # Set the image path
 ###########
-ImagePath $[fvwm_img]:$[fvwm_img];.png:$[fvwm_decor]:$[fvwm_fav]:$[fvwm_gant]:$[fvwm_ryo]:$[fvwm_wallpapers]:+
+ImagePath $[fvwm_img]/icons/fav/18x18:+:$[fvwm_img]:$[fvwm_img];.png:$[fvwm_decor]:$[fvwm_fav]:$[fvwm_gant]:$[fvwm_ryo]:$[fvwm_wallpapers]:+
 
 #####
 # set preference application

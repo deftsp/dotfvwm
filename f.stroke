@@ -5,7 +5,7 @@ Mouse 3 R N StrokeFunc DrawMotion
 Mouse 3 A C StrokeFunc DrawMotion
 
 #Drag mouse on the border
-Mouse 3 TSF N StrokeFunc DrawMotion
+# Mouse 3 TSF N StrokeFunc DrawMotion
 
 
 

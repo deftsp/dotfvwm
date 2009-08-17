@@ -1,0 +1,62 @@
+#---------------------------------------------
+# TINT CONFIG FILE
+#---------------------------------------------
+
+#---------------------------------------------
+# PANEL
+#---------------------------------------------
+panel_mode = multi_monitor
+panel_monitor = 1
+panel_position = bottom left
+panel_size = 940 28
+panel_margin = 5 0
+panel_padding = 9 3
+font_shadow = 0
+
+#---------------------------------------------
+# PANEL BACKGROUND AND BORDER
+#---------------------------------------------
+panel_rounded = 7
+panel_border_width = 2
+panel_background_color = #000000 30
+panel_border_color = #000000 10
+
+#---------------------------------------------
+# TASKS
+#---------------------------------------------
+task_text_centered = 1
+task_width = 100
+task_margin = 2
+task_padding = 6
+task_icon_size = 14
+task_font = iyahei 8
+task_font_color = #ffffff 60
+task_active_font_color = #ffffff 80
+
+#---------------------------------------------
+# TASK BACKGROUND AND BORDER
+#---------------------------------------------
+task_rounded = 3
+task_background_color = #000000 40
+task_active_background_color = #000000 55
+task_border_width = 1
+task_border_color = #d1d1d1 35
+task_active_border_color = #d1d1d1 40
+
+#---------------------------------------------
+# CLOCK
+#---------------------------------------------
+time1_format = %H:%M
+time1_font = iyahei 8
+time2_format = %A %d %B
+time2_font = iyahei 7
+clock_font_color = #ffffff 70
+
+#---------------------------------------------
+# MOUSE ACTION ON TASK
+#---------------------------------------------
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify
+

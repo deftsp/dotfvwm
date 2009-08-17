@@ -40,7 +40,7 @@ default_outline_color grey90
 TEXT
 ${font openlogos:size=38}${color #1994d1}Q ${voffset -25}${font}${color slate grey}UpTime:${alignr}${color}${uptime}
                   ${color slate grey}Cpu:${alignr}${color}${cpu}% ${acpitemp}C
-${voffset -3}${alignr}${cpugraph 10,110 ffffff}
+${voffset 6}${alignr}${cpugraph 10,110 ffffff}
 ${color slate grey}Mem : ${color}${memperc}%${alignr}${color}${mem}
 ${color slate grey}Swap: ${color}${swapperc}%${alignr}${swap}
 ${color #ff8b5d}${top name 1}${alignr}${color}${top cpu 1}/cpu
