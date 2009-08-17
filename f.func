@@ -93,28 +93,23 @@ AddToFunc  StardictToggleScan
 # + I Raise
 # + I FlipFocus
 
+# remember the focus window
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: Cmd Function
+*FvwmEvent: new_page CurrentPageFocusFunc
+*FvwmEvent: new_desk CurrentPageFocusFunc
+*FvwmEvent: destroy_window CurrentPageFocusFunc
+*FvwmEvent: focus_change MarkWindowAsActiveFunc
 
+DestroyFunc CurrentPageFocusFunc
+AddToFunc CurrentPageFocusFunc
+    + I Next (CurrentPage, State 2) Focus
+    + I None (CurrentPage, Focused) Prev (CurrentPage, !Iconified, !Sticky) Focus
 
-# DestroyFunc LastWindow
-# AddToFunc LastWindow
-# + I       Next (CurrentPage, State 2) SelectWindow
-# + I       None (CurrentPage) Break
-
-# DestroyFunc MarkWindowAsLastWindow
-# AddToFunc   MarkWindowAsLastWindow
-# + I         Current State 2 True
-
-# DestroyFunc UnMarkWindowAsLastWindow
-# AddToFunc   UnMarkWindowAsLastWindow
-# + I         All State 2 False
-# + I         Current State 2 True
-
-# DestroyModuleConfig FvwmEvent: *
-# *FvwmEvent: Cmd Function
-# *FvwmEvent: raise_window MarkWindowAsLastWindow
-# *FvwmEvent: enter_window MarkWindowAsLastWindow
-# *FvwmEvent: focus_change UnMarkWindowAsLastWindow
-# *FvwmEvent: leave_window MarkWindowAsLastWindow
+DestroyFunc MarkWindowAsActiveFunc
+AddToFunc MarkWindowAsActiveFunc
+    + I Current (!Iconified) All (CurrentPage, !Focused) State 2 False
+    + I Current (!Iconified) State 2 True
 
 # *FvwmEvent: Cmd Echo
 # *FvwmEvent: focus_change "focus change:)"
