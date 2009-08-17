@@ -27,6 +27,7 @@ AddToFunc StartFunction
 + I Module FvwmPerl
 + I Module FvwmCommandS
 + I Module FvwmButtons MyBarre
++ I Test (Init) Test (x xterm) StartHiddenConsole
 # + I Module FvwmButtons MyDock
 # + I Module FvwmButtons ConkyInfo
 # + I Module FvwmButtons FvwmStalonePanel
