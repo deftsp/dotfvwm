@@ -2,7 +2,7 @@
 # Mouse 1 A       4       Menu MenuFvwmRoot Root +0 +20p
 
 DestroyMenu MenuFvwmRoot
-AddToMenu "MenuFvwmRoot@$[fvwm_img]/menu/menu_side_black.png@"
+AddToMenu "MenuFvwmRoot@$[fvwm_img]/menu/menu_side_black_gentoo.png@"
 +         *$[fvwm_img]/menu/menu_up.png*       Title
 +         "&Terminal"%terminal.png%		       Exec exec urxvt
 +         ""                                   Nop
