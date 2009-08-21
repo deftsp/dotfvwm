@@ -92,7 +92,7 @@ AddToFunc   Ctrl-I-Action
 + I Key J       A C Run-Or-Raise-Emacs
 + I Key J       A N Run-Or-Raise-Firefox
 + I Key Return  A N Run-Or-Raise-URxvt
-+ I Key Return  A C MaximizeGrow
++ I Key Return  A C Maximize
 + I Key M       A N Menu MenuFvwmRoot Root +0 +17p
 + I Key S       A N WindowShade
 + I Key T       A N ToggleStaysOnTop
