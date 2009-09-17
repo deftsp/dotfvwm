@@ -86,7 +86,7 @@ AddToFunc ToggleStaysOnTop
 # Use menu to the same work
 DestroyFunc Ctrl-I-Action
 AddToFunc   Ctrl-I-Action
-+ I Key B       A N Exec exec dynamic-pdf-select
++ I Key B       A N Exec exec dynamic-ebook-select
 + I Key C       A N Run-Or-Raise-FvwmConsole
 + I Key I       A N Iconify
 + I Key J       A C Run-Or-Raise-Emacs
