@@ -7,7 +7,8 @@ DestroyModuleConfig FvwmIconMan : *
 *FvwmIconMan  Font "Shadow=0 1 SE:xft:aqui:pixelsize=10:encoding=iso10646-1"
 
 *FvwmIconMan: Colorset 3
-*FvwmIconMan: Action Mouse 1 A SendCommand  RaiseOrIconify
+# click some program and jump to it
+*FvwmIconMan: Action Mouse 1 N sendcommand "Iconify off", sendcommand RaiseLower, sendcommand FlipFocus
 *FvwmIconMan: NoIconAction "SendToModule FvwmAnimate animate"
 *FvwmIconMan: background white grey
 *FvwmIconMan: ShowOnlyIcons false
