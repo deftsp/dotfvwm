@@ -9,7 +9,7 @@ DestroyFunc InitFunction
 AddToFunc InitFunction
 # + I Module FvwmBanner
 # + I Exec exec xscreensaver -no-splash
-+ I Exec exec fcitx
++ I Exec sleep 3 && exec fcitx
 + I Exec habak -ms $[fvwm_wallpapers]
 # + I Exec exec ivman-launch --exit-with-session xinit &
 # + I Exec exec wicd-client
